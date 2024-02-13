@@ -167,6 +167,7 @@ h2,
 h3,
 h4 {
   color: var(--accent);
+  font-weight: 400;
 }
 
 details.box {
@@ -179,7 +180,6 @@ details.box {
     display: inline-block;
     list-style: none;
     border: var(--accentborder);
-    color: var(--highlight);
     padding: 0.5ch;
     cursor: pointer;
 
@@ -207,7 +207,7 @@ details.box {
     flex-direction: column-reverse;
 
     h1 {
-      font-size: clamp(1rem, 5vmax, 10rem);
+      font-size: clamp(1rem, 6vmax, 12rem);
       letter-spacing: calc(var(--bwidth) * -1);
       margin-block-start: clamp(1rem, 5vmin, 2rem);
       margin-block-end: clamp(1rem, 5vmin, 2rem);
@@ -253,10 +253,15 @@ details.box {
     flex-direction: column-reverse;
     flex: 1;
 
+
+    & .content {
+      display: flex;
+      gap: 5vmax;
+    }
+
     & .content p {
       margin: 0;
       letter-spacing: calc(var(--bwidth) * -1);
-      color: var(--accent);
 
       & a {
         color: var(--highlight);
