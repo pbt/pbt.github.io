@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>p.b. to</title>
+  <meta name="description" content="Interfacing & Computing">
+
+  <!-- Recommended minimum -->
+  <meta property="og:title" content="p.b. to">
+  <meta property="og:description" content="p.b. to's personal website">
+  <meta property="og:image" content="img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- You could also inline the stylesheet -->
+  <link rel="stylesheet" href="_/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- htmx :) -->
+  <script src="https://unpkg.com/htmx.org@1.9.10"
+    integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+    crossorigin="anonymous"></script>
+</head>
+
+<body class="home" hx-boost="true">
+  <header>
+    <h1 class="name">p.b. to</h1>
+    <p class="slogan"><span>Computing</span> <span>&amp;</span> <span>Interfacing</span>
+  </header>
+  <main>
+    <section class="content">
+      <details class="box" open>
+        <summary>now</summary>
+        <div>
+          <p>learning at the <a href="https://recurse.com/">recurse center</a>
+          <p>inspired by <a href="https://htmx.org/">htmx</a>
+          <p>making games for the <a href="https://play.date">playdate</a>
+          <p>introducing... the <a href="https://ota.pbt.dev">octopus transportation authority</a>
+          <p>slowly crafting some interpreters
+          <p>learning a lot about webauthn
+        </div>
+      </details>
+      <details class="box" open>
+        <summary>blog</summary>
+        <div>
+          <p>
+            <a href="blog/frameworks/">letting go of frameworks and how that feels</a> <time
+              datetime="2024-01-09">2024-01-09</time>
+          </p>
+          <p>
+            <a href="blog/hello/">hello, again</a> <time datetime="2024-01-09">2024-01-03</time>
+          </p>
+        </div>
+      </details>
+    </section>
+    <section class="img">
+      <img width="308" height="325" loading="lazy" alt="" src="_/pompom.png">
+    </section>
+  </main>
+  <footer>
+    <p>designed in nyc</p>
+    <p class="colophon">fonts: atkinson hyperlegible, times, courier new</p>
+  </footer>
+</body>
