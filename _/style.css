@@ -348,17 +348,7 @@ h4 {
     width: min(calc(100vw - var(--gap) * 2), 1440px);
 
     & article {
-      &> :not(h2, h3, h4) {
-        padding: 0 calc(100% * 1 / 6 + var(--gap));
-      }
-
-      & h2,
-      & h3,
-      & h4 {
-        position: relative;
-        top: calc(var(--basesize) * var(--baseline) * 2);
-        width: calc(100% * 1 / 6);
-      }
+      padding: 0 calc(100% * 1 / 6 + var(--gap));
     }
   }
 
