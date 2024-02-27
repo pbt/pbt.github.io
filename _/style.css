@@ -266,7 +266,6 @@ h4 {
   & footer {
     font-family: var(--textfont);
     font-size: var(--basesize);
-    line-height: calc(var(--baseline) * 32/24);
 
     & .colophon {
       font-family: var(--textfont);
