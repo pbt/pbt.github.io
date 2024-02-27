@@ -331,11 +331,6 @@ h4 {
     color: var(--highlight);
   }
 
-
-  h1 {
-    font-size: calc(var(--basesize) * 4);
-  }
-
   a {
     color: var(--highlight);
   }
@@ -346,6 +341,11 @@ h4 {
   body.post {
     margin: 0 auto;
     width: min(calc(100vw - var(--gap) * 2), 1440px);
+
+
+    h1 {
+      font-size: calc(var(--basesize) * 4);
+    }
 
     & article {
       padding: 0 calc(100% * 1 / 6 + var(--gap));
