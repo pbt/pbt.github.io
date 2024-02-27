@@ -226,7 +226,7 @@ h4 {
   }
 
   & header {
-    padding: var(--gap);
+    padding: calc(var(--gap)/2);
     padding-bottom: 0;
 
     flex: 0;
@@ -348,6 +348,11 @@ h4 {
 
 
   .home {
+
+    & header {
+      padding: calc(var(--gap));
+      padding-bottom: 0;
+    }
 
     & footer {
       flex: 0;
