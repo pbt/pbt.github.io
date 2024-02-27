@@ -239,7 +239,7 @@ h4 {
       font-size: clamp(calc(var(--basesize) * 3), 12vmin, calc(var(--basesize) * 12));
       font-weight: 300;
       letter-spacing: -0.01ch;
-      text-align: center;
+      text-align: left;
       /*
       margin-block-start: clamp(1rem, 5vmin, 2rem);
       margin-block-end: clamp(1rem, 5vmin, 2rem);*/
@@ -254,7 +254,8 @@ h4 {
       border: var(--bwidth) solid var(--accent);
       border-bottom-width: 0;
       border-radius: 0.5ch 0.5ch 0 0;
-      text-align: center;
+      text-align: left;
+      padding: calc(var(--gap) / 2);
     }
   }
 
