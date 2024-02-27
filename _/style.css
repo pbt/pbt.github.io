@@ -127,7 +127,7 @@ textarea:not([rows]) {
   --auxfont: "Courier Prime", Courier, mono;
 
   --basesize: 20px;
-  --baseline: 1.25;
+  --baseline: 1.33;
 
   /* accent */
   --bwidth: 0.05ch;
@@ -185,6 +185,7 @@ h4 {
 .home {
   display: flex;
   flex-direction: column;
+  line-height: var(--baseline);
 
   & .note-thumbnail {
     padding-top: var(--gap);
@@ -212,8 +213,8 @@ h4 {
     & p {
       text-align: center;
       padding: 0 calc(100% * 1 / 6);
-      font-size: calc(var(--basesize) * var(--baseline)* 1.1);
-      line-height: calc(var(--basesize) * var(--baseline));
+      font-size: calc(var(--basesize) * var(--baseline) * 1.1);
+      line-height: var(--baseline);
       letter-spacing: calc(var(--bwidth) * -0.5);
       font-family: var(--headerfont);
     }
@@ -225,39 +226,34 @@ h4 {
   }
 
   & header {
+    padding: var(--gap);
+
     flex: 0;
     display: flex;
     flex-direction: column-reverse;
 
     & h1.name {
-      font-family: var(--auxfont);
-      color: var(--accent);
-      font-style: italic;
+      font-family: var(--textfont);
+      color: var(--highlight);
+      font-size: clamp(calc(var(--basesize) * 3), 12vmin, calc(var(--basesize) * 12));
+      font-weight: 300;
+      letter-spacing: -0.01ch;
       text-align: center;
-      font-size: calc(var(--basesize) * 3);
-      letter-spacing: calc(var(--bwidth) * -1);
+      /*
       margin-block-start: clamp(1rem, 5vmin, 2rem);
-      margin-block-end: clamp(1rem, 5vmin, 2rem);
+      margin-block-end: clamp(1rem, 5vmin, 2rem);*/
     }
 
     & .slogan {
       margin-block-start: 0;
+      font-family: var(--auxfont);
       color: var(--accent);
+      font-style: italic;
       letter-spacing: calc(var(--bwidth) * -1);
-      display: flex;
-
-      & span {
-        flex: 1;
-        text-align: center;
-
-        &:first-child {
-          text-align: left;
-        }
-
-        &:last-child {
-          text-align: right;
-        }
-      }
+      border: var(--bwidth) solid var(--accent);
+      border-bottom-width: 0;
+      border-radius: 0.5ch 0.5ch 0 0;
+      text-align: center;
     }
   }
 
@@ -267,9 +263,6 @@ h4 {
     font-family: var(--textfont);
     font-size: var(--basesize);
 
-    & .colophon {
-      font-family: var(--textfont);
-    }
   }
 
   & main {
@@ -290,19 +283,15 @@ h4 {
   }
 
   & footer {
+    padding: var(--gap);
     color: var(--accent);
-    flex: 0;
-    justify-self: flex-end;
-    display: flex;
+    font-family: var(--auxfont);
+    font-style: italic;
+    font-size: 0.8rem;
 
-    & p {
-      flex: 1;
-
-      &:last-child {
-        text-align: right;
-      }
+    & p:last-child {
+      border-bottom: var(--bwidth) solid var(--accent);
     }
-
   }
 
 }
@@ -320,6 +309,7 @@ h4 {
   article {
     margin-top: var(--gap);
     border-top: var(--bwidth) solid var(--highlight);
+    line-height: calc(var(--basesize) * var(--baseline));
   }
 
   h1,
@@ -329,6 +319,7 @@ h4 {
     font-family: var(--headerfont);
     letter-spacing: calc(var(--bwidth) * -1);
     color: var(--highlight);
+    padding-top: var(--gap);
   }
 
   a {
@@ -342,18 +333,36 @@ h4 {
     margin: 0 auto;
     width: min(calc(100vw - var(--gap) * 2), 1440px);
 
-
     h1 {
       font-size: calc(var(--basesize) * 4);
     }
 
     & article {
       padding: 0 calc(100% * 1 / 6 + var(--gap));
+      line-height: calc(110% * var(--baseline));
     }
   }
 
 
   .home {
+
+    & footer {
+      flex: 0;
+      justify-self: flex-end;
+      display: flex;
+
+      & p {
+        margin: 0;
+        flex: 1;
+        border-bottom: var(--bwidth) solid var(--accent);
+
+        &:last-child {
+          text-align: right;
+        }
+      }
+
+    }
+
     & main {
       display: flex;
       flex-direction: row;
