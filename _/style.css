@@ -240,6 +240,7 @@ h4 {
       font-weight: 300;
       letter-spacing: -0.01ch;
       text-align: left;
+      padding: 0 calc(var(--gap) / 2);
       /*
       margin-block-start: clamp(1rem, 5vmin, 2rem);
       margin-block-end: clamp(1rem, 5vmin, 2rem);*/
