@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Courier+Prime:ital@1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
     rel="stylesheet">
 
   <!-- htmx :) -->
@@ -34,37 +34,52 @@
     <p class="slogan"><span>Computing</span> <span>&amp;</span> <span>Interfacing</span>
   </header>
   <main>
-    <section class="content">
-      <details class="box" open>
-        <summary>now</summary>
-        <div>
-          <p>learning at the <a href="https://recurse.com/">recurse center</a>
-          <p>inspired by <a href="https://htmx.org/">htmx</a>
-          <p>making games for the <a href="https://play.date">playdate</a>
-          <p>introducing... the <a href="https://ota.pbt.dev">octopus transportation authority</a>
-          <p>slowly crafting some interpreters
-          <p>learning a lot about webauthn
+    <div class="content col">
+      <section class="notes">
+        <h2>Notes</h2>
+        <div class="note-thumbnail">
+          <time datetime="2024-01-09">2024-01-09</time>
+          <div>
+            <h3><a href="blog/frameworks/">Letting go of frameworks and how that feels</a></h3>
+            <p>Starting over again is a crucial process.</p>
+          </div>
         </div>
-      </details>
-      <details class="box" open>
-        <summary>blog</summary>
-        <div>
-          <p>
-            <a href="blog/frameworks/">letting go of frameworks and how that feels</a> <time
-              datetime="2024-01-09">2024-01-09</time>
-          </p>
-          <p>
-            <a href="blog/hello/">hello, again</a> <time datetime="2024-01-09">2024-01-03</time>
-          </p>
+        <div class="note-thumbnail">
+          <time datetime="2024-01-09">2024-01-03</time>
+          <div>
+            <h3><a href="blog/hello/">Hello, again</a></h3>
+            <p>A new era of personal website.</p>
+          </div>
         </div>
-      </details>
-    </section>
-    <section class="img">
-      <img width="308" height="325" loading="lazy" alt="" src="_/pompom.png">
+        </details>
+      </section>
+      <section class="now">
+        <h2>Now</h2>
+        <div>
+          <p>I'm still at the Recurse Center for four more weeks. This is my third website redesign.</p>
+          <p class="mute">Updated <time datetime="2024-02-28">2024-02-28</time>.
+        </div>
+      </section>
+    </div>
+    <section class="about col">
+      <h2>About Me</h2>
+      <div class="img">
+        <div class="sr-only">A hand-drawn illustration. In the center: A smiling cartoon face, bisected by a wavy line.
+          On the botton: A retro personal computer. To the left: A hand holding a balloon, a square, a circle, a star, a
+          crescent moon. To the right: A zero, an X, a triangle, two angle brackets, a curly brace, and a mouse.</div>
+
+      </div>
+      <p>I’m curious about finding the desire paths we carve in the world of computing, and I’m excited about making
+        them concrete.</p>
+      <p>
+        Currently enrolled at the <a class href="https://recurse.com">Recurse Center.</a></p>
+      <p>
+
+        It’s so nice to meet you! Email is the best way to reach me.</p>
     </section>
   </main>
   <footer>
-    <p>designed in nyc</p>
-    <p class="colophon">fonts: atkinson hyperlegible, times, courier new</p>
+    <p>Designed in Queens</p>
+    <p class="colophon">Typeset in DM Sans, Atkinson Hyperlegible, EB Garamond, Courier Prime</p>
   </footer>
 </body>
