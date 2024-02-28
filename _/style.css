@@ -230,7 +230,7 @@ h4 {
 
     flex: 0;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 
     & > * {
       padding: calc(var(--gap));
