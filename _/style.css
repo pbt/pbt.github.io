@@ -240,9 +240,10 @@ h4 {
 
     & h1.name {
       font-family: var(--textfont);
-      color: var(--highlight);
       font-size: clamp(calc(var(--basesize) * 3), 9vmin, calc(var(--basesize) * 9));
       font-weight: 300;
+      color: var(--accent);
+
       letter-spacing: -0.01ch;
       text-align: left;
       /*
@@ -251,9 +252,10 @@ h4 {
     }
 
     & .slogan {
+      color: var(--highlight);
+
       margin-block-start: 0;
       font-family: var(--auxfont);
-      color: var(--accent);
       font-style: italic;
       letter-spacing: calc(var(--bwidth) * -1);
       text-align: left;
