@@ -134,7 +134,7 @@ textarea:not([rows]) {
   --accentborder: var(--bwidth) solid var(--highlight);
 
   /* gap */
-  --gap: calc(var(--basesize) * var(--baseline));
+  --gap: calc(var(--basesize) * var(--baseline) / 2);
 }
 
 @media (prefers-contrast: more) and (prefers-color-scheme: light) {
@@ -149,18 +149,18 @@ textarea:not([rows]) {
 @media (prefers-color-scheme: dark) {
   :root {
     --textcolor: #dedede;
-    --bgcolor: #13141A;
+    --bgcolor: #0F121D;
     --highlight: #FF82A5;
-    --accent: #FF306A;
+    --accent: #BBA5AB;
   }
 }
 
 @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
   :root {
     --textcolor: #fff;
-    --bgcolor: #000;
+    --bgcolor: #0E0E11;
     --highlight: #FF82A5;
-    --accent: #FF306A;
+    --accent: #FFE2EA;
   }
 }
 
@@ -211,8 +211,6 @@ h4 {
     }
 
     & p {
-      text-align: center;
-      padding: 0 calc(100% * 1 / 6);
       font-size: calc(var(--basesize) * var(--baseline) * 1.1);
       line-height: var(--baseline);
       letter-spacing: calc(var(--bwidth) * -0.5);
@@ -253,8 +251,7 @@ h4 {
       font-style: italic;
       letter-spacing: calc(var(--bwidth) * -1);
       border: var(--bwidth) solid var(--accent);
-      border-bottom-width: 0;
-      border-radius: 0.5ch 0.5ch 0 0;
+      border-radius: 2ch;
       text-align: left;
       padding: calc(var(--gap) / 2);
     }
@@ -292,8 +289,8 @@ h4 {
     font-style: italic;
     font-size: 0.8rem;
 
-    & p:last-child {
-      border-bottom: var(--bwidth) solid var(--accent);
+    & p:first-child {
+      border-top: var(--bwidth) solid var(--accent);
     }
   }
 
@@ -332,6 +329,10 @@ h4 {
 
 
 @media screen and (min-width: 720px) {
+  ::root {
+    --gap: calc(var(--basesize) * var(--baseline));
+  }
+
   body.post {
     margin: 0 auto;
     width: min(calc(100vw - var(--gap) * 2), 1440px);
@@ -362,13 +363,22 @@ h4 {
       & p {
         margin: 0;
         flex: 1;
-        border-bottom: var(--bwidth) solid var(--accent);
+        border-top: var(--bwidth) solid var(--accent);
 
         &:last-child {
           text-align: right;
         }
       }
 
+    }
+
+    & .about p {
+      text-align: center;
+      padding: 0 calc(100% * 1 / 6);
+      font-size: calc(var(--basesize) * var(--baseline) * 1.1);
+      line-height: var(--baseline);
+      letter-spacing: calc(var(--bwidth) * -0.5);
+      font-family: var(--headerfont);
     }
 
     & main {
