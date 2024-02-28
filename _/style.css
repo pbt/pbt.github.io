@@ -130,7 +130,7 @@ textarea:not([rows]) {
   --baseline: 1.33;
 
   /* accent */
-  --bwidth: 0.05ch;
+  --bwidth: 1px;
   --accentborder: var(--bwidth) solid var(--highlight);
 
   /* gap */
@@ -226,6 +226,7 @@ h4 {
   & header {
     padding: calc(var(--gap)/2);
     padding-bottom: 0;
+    gap: var(--gap);
 
     flex: 0;
     display: flex;
@@ -234,7 +235,7 @@ h4 {
     & h1.name {
       font-family: var(--textfont);
       color: var(--highlight);
-      font-size: clamp(calc(var(--basesize) * 3), 18vmin, calc(var(--basesize) * 12));
+      font-size: clamp(calc(var(--basesize) * 3), 9vmin, calc(var(--basesize) * 9));
       font-weight: 300;
       letter-spacing: -0.01ch;
       text-align: left;
