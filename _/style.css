@@ -1,185 +1,241 @@
+@layer reset,
+common;
+
 /* CSS reset: thanks https://piccalil.li/blog/a-more-modern-css-reset/ */
 /* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@layer reset {
 
-.sr-only {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-* {
-  font-optical-sizing: auto;
-}
+  .sr-only {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
 
-/* Prevent font size inflation */
-html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-}
+  * {
+    font-optical-sizing: auto;
+  }
 
-/* Remove default margin in favour of better control in authored CSS */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin-block-end: 0;
-}
+  /* Prevent font size inflation */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
 
-h1,
-h2,
-h3,
-h4 {
-  margin-block-start: 0;
-}
+  /* Remove default margin in favour of better control in authored CSS */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin-block-end: 0;
+  }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
-  list-style: none;
-}
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-block-start: 0;
+  }
 
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  margin: 0;
-}
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  ul[role='list'],
+  ol[role='list'] {
+    list-style: none;
+  }
 
-/* Set shorter line heights on headings and interactive elements */
-h1,
-h2,
-h3,
-h4,
-button,
-input,
-label {
-  line-height: 1.1;
-}
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    margin: 0;
+  }
 
-/* Balance text wrapping on headings */
-h1,
-h2,
-h3,
-h4 {
-  text-wrap: balance;
-}
+  /* Set shorter line heights on headings and interactive elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
 
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-  color: currentColor;
-}
+  /* Balance text wrapping on headings */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
 
-/* Make images easier to work with */
-img,
-picture {
-  max-width: 100%;
-  display: block;
-}
+  /* A elements that don't have a class get default styles */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+  }
 
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
+  /* Make images easier to work with */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
 
-/* Make sure textareas without a rows attribute are not tiny */
-textarea:not([rows]) {
-  min-height: 10em;
-}
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
 
-/* Anything that has been anchored to should have extra scroll margin */
-:target {
-  scroll-margin-block: 5ex;
-}
+  /* Make sure textareas without a rows attribute are not tiny */
+  textarea:not([rows]) {
+    min-height: 10em;
+  }
 
-/* color schemes and variables */
-:root {
+  /* Anything that has been anchored to should have extra scroll margin */
+  :target {
+    scroll-margin-block: 5ex;
+  }
 
-  /* Color scheme */
-
-  --textcolor: #231515;
-  --bgcolor: #FAE1F3;
-  --bgcolor-transparent: rgb(250 230 242 / 0.8);
-  --highlight: #0029FF;
-  --accent: #FC0038;
-
-  /* typography */
-  --textfont: "DM Sans", system-ui, sans-serif;
-  --headerfont: "EB Garamond", "Garamond", serif;
-  --auxfont: "Courier Prime", Courier, mono;
-
-  --basesize: 20px;
-  --baseline: 1.33;
-
-  /* accent */
-  --bwidth: 1px;
-  --accentborder: var(--bwidth) solid var(--highlight);
-
-  /* gap */
-  --gap: calc(var(--basesize) * var(--baseline) / 2);
-}
-
-@media (prefers-contrast: more) and (prefers-color-scheme: light) {
+  /* color schemes and variables */
   :root {
-    --textcolor: #000;
-    --bgcolor: rgb(254, 245, 250);
+
+    /* Color scheme */
+
+    --textcolor: #231515;
+    --bgcolor: #FAE1F3;
+    --bgcolor-transparent: rgb(250 230 242 / 0.8);
     --highlight: #0029FF;
     --accent: #FC0038;
+
+    /* typography */
+    --textfont: "DM Sans", system-ui, sans-serif;
+    --headerfont: "EB Garamond", "Garamond", serif;
+    --auxfont: "Courier Prime", Courier, mono;
+
+    --basesize: 18px;
+    --baseline: 1.5;
+
+    /* accent */
+    --bwidth: 1px;
+    --accentborder: var(--bwidth) solid var(--highlight);
+
+    /* gap */
+    --gap: calc(var(--basesize) * var(--baseline) / 2);
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --textcolor: #dedede;
-    --bgcolor: #0F121D;
-    --highlight: #FF82A5;
-    --accent: #BBA5AB;
+@layer common {
+
+  body {
+    background: var(--bgcolor);
+    color: var(--textcolor);
   }
-}
 
-@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
-  :root {
-    --textcolor: #fff;
-    --bgcolor: #0E0E11;
-    --highlight: #FF82A5;
-    --accent: #FFE2EA;
+  a {
+    color: var(--highlight);
   }
-}
 
-body {
-  background: var(--bgcolor);
-  color: var(--textcolor);
-}
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--highlight);
+    font-weight: 400;
+    font-family: var(--headerfont);
+  }
 
-a {
-  color: var(--highlight);
-}
+  @media (prefers-contrast: more) and (prefers-color-scheme: light) {
+    :root {
+      --textcolor: #000;
+      --bgcolor: rgb(254, 245, 250);
+      --highlight: #0029FF;
+      --accent: #FC0038;
+    }
+  }
 
-h1,
-h2,
-h3,
-h4 {
-  color: var(--highlight);
-  font-weight: 400;
-  font-family: var(--headerfont);
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --textcolor: #dedede;
+      --bgcolor: #0F121D;
+      --highlight: #FF82A5;
+      --accent: #BBA5AB;
+    }
+  }
+
+  @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+    :root {
+      --textcolor: #fff;
+      --bgcolor: #0E0E11;
+      --highlight: #FF82A5;
+      --accent: #FFE2EA;
+    }
+  }
+
+  & header {
+    padding: calc(var(--gap));
+    padding-bottom: 0;
+
+    flex: 0;
+    display: flex;
+    flex-direction: column;
+
+    &>* {
+      padding: 0 calc(var(--gap)* 2);
+      border: var(--bwidth) solid var(--highlight);
+      border-radius: 3rem;
+    }
+
+    & h1.name {
+      font-family: var(--textfont);
+      font-size: clamp(calc(var(--basesize) * 3), 9vmin, calc(var(--basesize) * 9));
+      font-weight: 300;
+      color: var(--accent);
+      border-color: var(--accent);
+
+      letter-spacing: -0.01ch;
+      text-align: left;
+
+      & a:not([class]) {
+        text-decoration-skip-ink: auto;
+        color: currentColor;
+      }
+    }
+
+    & .slogan {
+      color: var(--highlight);
+      margin-block-start: 0;
+      font-family: var(--auxfont);
+      font-style: italic;
+      letter-spacing: calc(var(--bwidth) * -1);
+      text-align: left;
+    }
+  }
+
+  & header,
+  & main,
+  & footer {
+    font-family: var(--textfont);
+    font-size: var(--basesize);
+  }
 }
 
 .home {
@@ -197,12 +253,11 @@ h4 {
   }
 
   & .about {
-
     container-type: inline-size;
-    container-name: about;
 
     & .img {
-      height: calc(var(--gap) * 12);
+      width: 100%;
+      aspect-ratio: 1.5;
       mask-image: url(./hello.png);
       mask-size: contain;
       mask-repeat: no-repeat;
@@ -211,8 +266,8 @@ h4 {
     }
 
     & p {
-      font-size: calc(var(--basesize) * var(--baseline) * 1.1);
-      line-height: var(--baseline);
+      font-size: calc(var(--basesize) * var(--baseline));
+      line-height: 1;
       letter-spacing: calc(var(--bwidth) * -0.5);
       font-family: var(--headerfont);
     }
@@ -221,53 +276,6 @@ h4 {
   & section {
     border-top: var(--bwidth) solid var(--highlight);
     padding-bottom: var(--gap);
-  }
-
-  & header {
-    padding: calc(var(--gap));
-    padding-bottom: 0;
-    gap: var(--gap);
-
-    flex: 0;
-    display: flex;
-    flex-direction: column;
-
-    & > * {
-      padding: calc(var(--gap));
-      border: var(--bwidth) solid var(--highlight);
-      border-radius: 2rem;
-    }
-
-    & h1.name {
-      font-family: var(--textfont);
-      font-size: clamp(calc(var(--basesize) * 3), 9vmin, calc(var(--basesize) * 9));
-      font-weight: 300;
-      color: var(--accent);
-
-      letter-spacing: -0.01ch;
-      text-align: left;
-      /*
-      margin-block-start: clamp(1rem, 5vmin, 2rem);
-      margin-block-end: clamp(1rem, 5vmin, 2rem);*/
-    }
-
-    & .slogan {
-      color: var(--highlight);
-
-      margin-block-start: 0;
-      font-family: var(--auxfont);
-      font-style: italic;
-      letter-spacing: calc(var(--bwidth) * -1);
-      text-align: left;
-    }
-  }
-
-  & header,
-  & main,
-  & footer {
-    font-family: var(--textfont);
-    font-size: var(--basesize);
-
   }
 
   & main {
@@ -298,7 +306,6 @@ h4 {
       border-top: var(--bwidth) solid var(--accent);
     }
   }
-
 }
 
 
@@ -309,26 +316,30 @@ h4 {
 .post {
   font-family: var(--textfont);
   font-size: var(--basesize);
-  padding: var(--gap);
 
-  article {
-    margin-top: var(--gap);
-    border-top: var(--bwidth) solid var(--highlight);
+  & article {
+    padding: calc(var(--gap) * 3) var(--gap);
     line-height: calc(var(--basesize) * var(--baseline));
-  }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: var(--headerfont);
-    letter-spacing: calc(var(--bwidth) * -1);
-    color: var(--highlight);
-    padding-top: var(--gap);
-  }
+    & h1 {
+      font-size: calc(var(--basesize) * 3);
+      text-align: center;
+      letter-spacing: -0.1ch;
+    }
 
-  a {
-    color: var(--highlight);
+    & aside {
+      font-weight: bold;
+      letter-spacing: -0.05ch;
+      text-align: center;
+      padding-bottom: calc(var(--gap) * 3);
+    }
+
+    & h2,
+    & h3,
+    & h4 {
+      font-family: var(--textfont);
+      padding-top: var(--gap);
+    }
   }
 }
 
@@ -338,16 +349,16 @@ h4 {
     --gap: calc(var(--basesize) * var(--baseline));
   }
 
+  header {
+    padding: calc(var(--gap) * 2);
+    padding-bottom: 0;
+    flex-direction: row;
+    align-items: start;
+  }
+
   body.post {
-    margin: 0 auto;
-    width: min(calc(100vw - var(--gap) * 2), 1440px);
-
-    h1 {
-      font-size: calc(var(--basesize) * 4);
-    }
-
     & article {
-      padding: 0 calc(100% * 1 / 6 + var(--gap));
+      padding: calc(var(--gap) * 3) calc(100% * 1 / 6 + var(--gap));
       line-height: calc(110% * var(--baseline));
     }
   }
@@ -355,22 +366,25 @@ h4 {
 
   .home {
 
-    & header {
-      padding: calc(var(--gap) * 2);
-      padding-bottom: 0;
-      flex-direction: row;
-      align-items: start;
-    }
-
     & footer {
       flex: 0;
       justify-self: flex-end;
       display: flex;
 
+      & img {
+        display: inline-block;
+      }
+
       & p {
         margin: 0;
         flex: 1;
         border-top: var(--bwidth) solid var(--accent);
+
+        text-align: center;
+
+        &:first-child {
+          text-align: left;
+        }
 
         &:last-child {
           text-align: right;
@@ -382,10 +396,6 @@ h4 {
     & .about p {
       text-align: center;
       padding: 0 calc(100% * 1 / 6);
-      font-size: calc(var(--basesize) * var(--baseline) * 1.1);
-      line-height: var(--baseline);
-      letter-spacing: calc(var(--bwidth) * -0.5);
-      font-family: var(--headerfont);
     }
 
     & main {
@@ -429,11 +439,5 @@ h4 {
     }
 
 
-  }
-}
-
-@container about (min-width: 500px) {
-  .home .about .img {
-    height: calc(var(--gap) * 20);
   }
 }
