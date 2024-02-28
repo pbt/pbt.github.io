@@ -239,6 +239,8 @@ h4 {
       letter-spacing: -0.01ch;
       text-align: left;
       padding: 0 calc(var(--gap) / 2);
+      border: var(--bwidth) solid var(--accent);
+      border-radius: 1rem;
       /*
       margin-block-start: clamp(1rem, 5vmin, 2rem);
       margin-block-end: clamp(1rem, 5vmin, 2rem);*/
@@ -251,7 +253,7 @@ h4 {
       font-style: italic;
       letter-spacing: calc(var(--bwidth) * -1);
       border: var(--bwidth) solid var(--accent);
-      border-radius: 2ch;
+      border-radius: 1rem;
       text-align: left;
       padding: calc(var(--gap) / 2);
     }
@@ -353,6 +355,7 @@ h4 {
     & header {
       padding: calc(var(--gap));
       padding-bottom: 0;
+      flex-direction: row;
     }
 
     & footer {
