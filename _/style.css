@@ -224,7 +224,7 @@ h4 {
   }
 
   & header {
-    padding: calc(var(--gap)/2);
+    padding: calc(var(--gap));
     padding-bottom: 0;
     gap: var(--gap);
 
@@ -240,7 +240,7 @@ h4 {
       letter-spacing: -0.01ch;
       text-align: left;
       padding: 0 calc(var(--gap) / 2);
-      border: var(--bwidth) solid var(--accent);
+      border: var(--bwidth) solid var(--highlight);
       border-radius: 1rem;
       /*
       margin-block-start: clamp(1rem, 5vmin, 2rem);
@@ -253,7 +253,7 @@ h4 {
       color: var(--accent);
       font-style: italic;
       letter-spacing: calc(var(--bwidth) * -1);
-      border: var(--bwidth) solid var(--accent);
+      border: var(--bwidth) solid var(--highlight);
       border-radius: 1rem;
       text-align: left;
       padding: calc(var(--gap) / 2);
@@ -354,9 +354,10 @@ h4 {
   .home {
 
     & header {
-      padding: calc(var(--gap));
+      padding: calc(var(--gap) * 2);
       padding-bottom: 0;
       flex-direction: row;
+      align-items: start;
     }
 
     & footer {
