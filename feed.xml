@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>p.b. to</title>
+	<link href="https://pbt.dev/feed.xml" rel="self" />
+	<link href="https://pbt.dev/" />
+	<id>urn:uuid:fa7f725a-1e91-443e-b8ab-badf41d23c49</id>
+	<updated>2003-12-13T18:30:02Z</updated>
+		
+	<entry>
+		<title>Letting go of frameworks, and how that feels</title>
+		<link href="https://pbt.dev/blog/frameworks" />
+		<id>urn:uuid:97ac9147-af16-4bfb-bf68-6556d9dcbe98</id>
+    <published>2003-11-09T17:23:02Z</published>
+		<updated>2003-12-13T18:30:02Z</updated>
+		<summary>or: how to clean up from scratch</summary>
+		<author>
+			<name>p.b. to</name>
+		</author>
+	</entry>
+
+</feed>

@@ -21,11 +21,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Courier+Prime:ital@1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
     rel="stylesheet">
-
-  <!-- htmx :) -->
-  <script src="https://unpkg.com/htmx.org@1.9.10"
-    integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
-    crossorigin="anonymous"></script>
   <script src="https://raw.githack.com/Qwuke/recurse-ring/main/static/ring.js" type="text/javascript"></script>
 </head>
 
@@ -94,13 +89,13 @@
   </main>
   <footer>
     <p>Designed in Queens</p>
-    <p class="colophon">Typeset in DM Sans, Atkinson Hyperlegible, EB Garamond, Courier Prime</p>
     <p>
-      <a id="rc-ring-prev" href="https://ring.recurse.com/prev?id=22">Prev</a>
+      <a aria-label="Previous" id="rc-ring-prev" href="https://ring.recurse.com/prev?id=22">←</a>
       <a id="rc-ring-home" data-rc-uuid="7bdfcb2e-8502-4ec3-a89a-46377f4168cc" href="https://ring.recurse.com/">The
         Recurse Webring</a>
-      <a id="rc-ring-rand" href="https://ring.recurse.com/rand">Random</a>
-      <a id="rc-ring-next" href="https://ring.recurse.com/next?id=22">Next</a>
+      <a id="rc-ring-next" aria-label="Next" href="https://ring.recurse.com/next?id=22">→</a><br>
+      <a id="rc-ring-rand" href="https://ring.recurse.com/rand">(Random)</a>
     </p>
+    <p class="colophon">Typeset in DM Sans, Atkinson Hyperlegible, EB Garamond, Courier Prime</p>
   </footer>
 </body>
