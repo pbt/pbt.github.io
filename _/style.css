@@ -85,7 +85,12 @@ common;
   }
 
   /* A elements that don't have a class get default styles */
-  a:not([class]) {
+  a {
+    transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  }
+
+  a:not([class]),
+  a:visited {
     text-decoration-skip-ink: auto;
     color: currentColor;
   }
@@ -150,8 +155,8 @@ common;
     color: var(--textcolor);
   }
 
-  a {
-    color: var(--highlight);
+  a:hover {
+    color: color-mix(in srgb, var(--highlight) 75%, white);
   }
 
   h1,
@@ -213,10 +218,19 @@ common;
 
       letter-spacing: -0.01ch;
       text-align: left;
+    }
 
-      & a:not([class]) {
-        text-decoration-skip-ink: auto;
-        color: currentColor;
+    & a[href="/"] {
+      background: var(--highlight);
+      color: var(--bgcolor);
+      transition: background 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+      & h1.name {
+        color: var(--bgcolor);
+      }
+
+      &:hover {
+        background: color-mix(in srgb, var(--highlight) 75%, white);
       }
     }
 
@@ -283,14 +297,12 @@ common;
     flex-direction: column;
     flex: 1;
     padding: var(--gap);
+    padding-top: calc(var(--gap) * 3);
 
     & .content p {
       margin: 0;
       padding-bottom: var(--gap);
 
-      & a {
-        color: var(--highlight);
-      }
     }
 
   }
