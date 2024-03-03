@@ -336,12 +336,11 @@ common;
     & h1 {
       font-size: calc(var(--basesize) * 3);
       text-align: center;
-      letter-spacing: -0.1ch;
+      letter-spacing: -0.07ch;
     }
 
     & aside {
       font-weight: bold;
-      letter-spacing: -0.05ch;
       text-align: center;
       padding-bottom: calc(var(--gap) * 3);
     }
@@ -350,7 +349,9 @@ common;
     & h3,
     & h4 {
       font-family: var(--textfont);
-      padding-top: var(--gap);
+      letter-spacing: -0.01ch;
+      padding-top: calc(var(--gap) * 3);
+      font-weight: 300;
     }
   }
 }
@@ -370,7 +371,8 @@ common;
 
   body.post {
     & article {
-      padding: calc(var(--gap) * 3) calc(100% * 1 / 6 + var(--gap));
+      margin: 0 auto;
+      width: min(800px, calc(100vw - var(--gap) * 2));
       line-height: calc(110% * var(--baseline));
     }
   }
