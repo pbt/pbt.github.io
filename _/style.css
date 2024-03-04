@@ -95,6 +95,12 @@ common;
     color: currentColor;
   }
 
+
+  a[href]:where([href*="//"],
+  ):after {
+    content: '↗︎';
+  }
+
   /* Make images easier to work with */
   img,
   picture {
@@ -153,6 +159,8 @@ common;
   body {
     background: var(--bgcolor);
     color: var(--textcolor);
+    font-family: var(--textfont);
+    line-height: var(--baseline);
   }
 
   a:hover {
@@ -244,12 +252,6 @@ common;
     }
   }
 
-  & header,
-  & main,
-  & footer {
-    font-family: var(--textfont);
-    font-size: var(--basesize);
-  }
 }
 
 .home {
@@ -314,6 +316,10 @@ common;
     font-style: italic;
     font-size: 0.8rem;
 
+    & a:after {
+      content: '';
+    }
+
     & p:first-child {
       border-top: var(--bwidth) solid var(--accent);
     }
@@ -374,6 +380,12 @@ common;
       margin: 0 auto;
       width: min(800px, calc(100vw - var(--gap) * 2));
       line-height: calc(110% * var(--baseline));
+
+      &>:last-child:after {
+        content: "◪";
+        color: var(--accent);
+        float: right;
+      }
     }
   }
 
@@ -382,7 +394,7 @@ common;
 
     & footer {
       flex: 0;
-      justify-self: flex-end;
+      Q justify-self: flex-end;
       display: flex;
 
       & img {
