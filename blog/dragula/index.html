@@ -47,12 +47,16 @@
       <p>
         <time datetime="2024-03-07">2024-03-07</time>
       </p><br>
+      <figure>
       <a href="https://share.cleanshot.com/Gz9S9WXy">
         <img
           style="border-radius: var(--gap); border: 1px solid var(--highlight); object-fit: cover; aspect-ratio: 1.8; width: 100%; padding: 0;"
           alt="a demo of Dragula, a weighted-drag-and-drop experiment" src="img/demo.gif">
-        <p style="text-align: center;"><small>Full Video (<strong>SOUND ON!</strong>)</small></p>
+        <figcaption>
+          <p style="text-align: center;"><small>Full Video (<strong>SOUND ON!</strong>)</small></p>
+        </figcaption>
       </a>
+    </figure>
     </aside>
 
     <p>
@@ -97,16 +101,20 @@
 
     <p>(plus, I thought it would be silly)</p>
     <br>
-    <img
-      style="border-radius: var(--gap); border: 1px solid var(--highlight); object-fit: cover; aspect-ratio: 2; width: 100%; padding: 0;"
-      src="img/weightlessness.png" alt="A man, with the icon for macOS Finder superimposed on top,
-       is next to a scale. He is surrounded by his friends, attempting to explain why Xcode and the 
-       file for an emoji feel the same, despite having vastly different file sizes.">
-    <p style="display: block; text-align: center; width: 100%;">&ldquo;But
-      Xcode&rsquo;s heavier
-      than emojis!&rdquo; <small><a href="https://www.youtube.com/watch?v=-fC2oke5MFg">With apologies to
-          Limmy.</a></small>
-    </p>
+    <figure>
+      <img
+        style="border-radius: var(--gap); border: 1px solid var(--highlight); object-fit: cover; aspect-ratio: 2; width: 100%; padding: 0;"
+        src="img/weightlessness.png" alt="A man, with the icon for macOS Finder superimposed on top,
+         is next to a scale. He is surrounded by his friends, attempting to explain why Xcode and the
+         file for an emoji feel the same, despite having vastly different file sizes.">
+      <figcaption>
+        <p style="display: block; text-align: center; width: 100%;">&ldquo;But
+          Xcode&rsquo;s heavier
+          than emojis!&rdquo; <small><a href="https://www.youtube.com/watch?v=-fC2oke5MFg">With apologies to
+              Limmy.</a></small>
+        </p>
+      </figcaption>
+    </figure>
     <h2>First sketches</h2>
     <p>From the get-go, my initial idea was to use macOS&rsquo; <a
         href="https://developer.apple.com/documentation/appkit/nsaccessibility">accessibility APIs.</a>
@@ -175,9 +183,9 @@
     This returns a list of files that looks like this:
 
     <pre><code class="language-applescript">
-        {application file "Xcode.app" of folder "Applications" of startup disk
-        of application "Finder", application file "Visual Studio Code.app" of folder "Applications"
-        of startup disk of application "Finder"}
+{application file "Xcode.app" of folder "Applications" of startup disk
+  of application "Finder", application file "Visual Studio Code.app" of folder "Applications"
+  of startup disk of application "Finder"}
       </code>
     </pre>
 
@@ -192,16 +200,16 @@
 
     <pre>
       <code class="language-applescript">
-        set theSize to 0
+set theSize to 0
 
-        tell application "Finder"
-        set theSelection to the selection as alias list
-        repeat with theItem in theSelection
-        set theInfo to (info for theItem)
-        set theSize to theSize + (size of theInfo)
-        end repeat
-        end tell
-        return theSize
+  tell application "Finder"
+  set theSelection to the selection as alias list
+  repeat with theItem in theSelection
+    set theInfo to (info for theItem)
+    set theSize to theSize + (size of theInfo)
+  end repeat
+  end tell
+return theSize
       </code>
     </pre>
 
@@ -221,12 +229,12 @@
       a pointer resolution. Here&rsquo;s the code that normalizes, by the way:
     <pre>
       <code class="language-swift">
-        extension Double {
-        func toNormalizedResolutionValue() -> Double {
-        let slope = (1995.0/1242850962)
-        return self * slope + 75
-        }
-        }
+extension Double {
+  func toNormalizedResolutionValue() -> Double {
+    let slope = (1995.0/1242850962)
+    return self * slope + 75
+  }
+}
       </code>
     </pre>
 
@@ -246,10 +254,10 @@
       presence of the <code>url</code> attribute on the element):
 
     <pre><code class="language-swift">
-        if !isMultiSelecting && element.getValue(.filename) is NSString,
-        let url = element.getValue(.url) as? URL {
-        // ...
-        }
+if !isMultiSelecting && element.getValue(.filename) is NSString,
+  let url = element.getValue(.url) as? URL {
+  // ...
+}
       </code></pre>
 
     <p>(shoutout to Swift's if-statements separated by commas and if-let syntax! i think Swift is such a neat language!)
@@ -272,7 +280,7 @@
       <br>
       <img width="256" height="256"
         style="border-radius: var(--gap); border: 1px solid var(--highlight); margin: 0 auto;"
-        alt="me trying to delete Xcode with Dragula enabled" src="img/xcode.gif">
+        alt="trying to delete Xcode with Dragula enabled; but I can't drag it far because Xcode is really big." src="img/xcode.gif">
       <br>
     <p>... Oh, right. Well, perhaps throwing things away is a drastic action. Instead I slept on it for a week, and
       after doing other stuff I dove back into it and implemented multi-select.
@@ -284,15 +292,15 @@
       is the code to retrieve all the paths in the selection, in POSIX format, separated by colons:
 
     <pre><code class="language-applescript">
-        set thePaths to ""
+set thePaths to ""
 
-        tell application "Finder"
-        set theSelection to the selection as alias list
-        repeat with theItem in theSelection
-        set thePaths to thePaths & POSIX path of theItem & ":"
-        end repeat
-        return thePaths
-        end tell
+tell application "Finder"
+  set theSelection to the selection as alias list
+  repeat with theItem in theSelection
+    set thePaths to thePaths & POSIX path of theItem & ":"
+  end repeat
+return thePaths
+end tell
       </code></pre>
 
     After this followed, I made a cute lil icon, inspired by the
