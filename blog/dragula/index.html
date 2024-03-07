@@ -8,8 +8,8 @@
   <meta name="description" content="I made Dragula, an extension to macOS Finder that adds weight to drag and drop.">
 
   <!-- Recommended minimum -->
-  <meta property="og:title" content="p.b. to">
-  <meta property="og:description" content="p.b. to's personal website">
+  <meta property="og:title" content="p.b. hua">
+  <meta property="og:description" content="p.b. hua's personal website">
   <meta property="og:image" content="img/og.png">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -36,7 +36,7 @@
 <body class="post">
   <header>
     <a href="/">
-      <h1 class="name">p.b. to</h1>
+      <h1 class="name">p.b. hua</h1>
     </a>
     <p class="slogan">sure, why not?</p>
     <p class="slogan"><a href="https://github.com/pbt/dragula">source code</a></p>
@@ -45,7 +45,7 @@
     <h1>Adding weight to drag and drop in<br> macOS Finder</h1>
     <aside>
       <p>
-        <time datetime="2024-03-05">2024-03-05</time>
+        <time datetime="2024-03-07">2024-03-07</time>
       </p><br>
       <a href="https://share.cleanshot.com/Gz9S9WXy">
         <img
@@ -56,7 +56,8 @@
     </aside>
 
     <p>
-      I made <strong><a href="https://github.com/pbt/dragula">Dragula</a></strong>, a highly experimental extension to macOS that adds weight to one of the oldest
+      I made <strong><a href="https://github.com/pbt/dragula">Dragula</a></strong>, a highly experimental extension to
+      macOS that adds weight to one of the oldest
       user interface
       interactions ever: The Finder&rsquo;s
       drag-and-drop interaction.
@@ -174,9 +175,9 @@
     This returns a list of files that looks like this:
 
     <pre><code class="language-applescript">
-{application file "Xcode.app" of folder "Applications" of startup disk
-  of application "Finder", application file "Visual Studio Code.app" of folder "Applications"
-  of startup disk of application "Finder"}
+        {application file "Xcode.app" of folder "Applications" of startup disk
+        of application "Finder", application file "Visual Studio Code.app" of folder "Applications"
+        of startup disk of application "Finder"}
       </code>
     </pre>
 
@@ -191,16 +192,16 @@
 
     <pre>
       <code class="language-applescript">
-set theSize to 0
+        set theSize to 0
 
-tell application "Finder"
-  set theSelection to the selection as alias list
-  repeat with theItem in theSelection
-    set theInfo to (info for theItem)
-    set theSize to theSize + (size of theInfo)
-  end repeat
-  end tell
-return theSize
+        tell application "Finder"
+        set theSelection to the selection as alias list
+        repeat with theItem in theSelection
+        set theInfo to (info for theItem)
+        set theSize to theSize + (size of theInfo)
+        end repeat
+        end tell
+        return theSize
       </code>
     </pre>
 
@@ -220,12 +221,12 @@ return theSize
       a pointer resolution. Here&rsquo;s the code that normalizes, by the way:
     <pre>
       <code class="language-swift">
-extension Double {
-  func toNormalizedResolutionValue() -> Double {
-    let slope = (1995.0/1242850962)
-    return self * slope + 75
-  }
-}
+        extension Double {
+        func toNormalizedResolutionValue() -> Double {
+        let slope = (1995.0/1242850962)
+        return self * slope + 75
+        }
+        }
       </code>
     </pre>
 
@@ -245,10 +246,10 @@ extension Double {
       presence of the <code>url</code> attribute on the element):
 
     <pre><code class="language-swift">
-if !isMultiSelecting && element.getValue(.filename) is NSString, 
-  let url = element.getValue(.url) as? URL {
-  // ...
-  }
+        if !isMultiSelecting && element.getValue(.filename) is NSString,
+        let url = element.getValue(.url) as? URL {
+        // ...
+        }
       </code></pre>
 
     <p>(shoutout to Swift's if-statements separated by commas and if-let syntax! i think Swift is such a neat language!)
@@ -280,34 +281,36 @@ if !isMultiSelecting && element.getValue(.filename) is NSString,
       was important for me to synchronize the selection from Finder instead of reading it directly each time. That way
       I could compare selections to see if they had changed (when you drag, you always drag on a file handle, no matter
       how large the selction, so I had to keep track of whether or not I was dragging just one file or multiple.) Here
-      is the code to retrieve all the paths in the selection, in POSIX format, separated by colons: 
+      is the code to retrieve all the paths in the selection, in POSIX format, separated by colons:
 
     <pre><code class="language-applescript">
-set thePaths to ""
+        set thePaths to ""
 
-tell application "Finder"
-    set theSelection to the selection as alias list
-    repeat with theItem in theSelection
+        tell application "Finder"
+        set theSelection to the selection as alias list
+        repeat with theItem in theSelection
         set thePaths to thePaths & POSIX path of theItem & ":"
-    end repeat
-    return thePaths
-end tell
-     </code></pre>
+        end repeat
+        return thePaths
+        end tell
+      </code></pre>
 
-    After this followed, I made a cute lil icon, inspired by the 
+    After this followed, I made a cute lil icon, inspired by the
     namesake <a href="http://www.munsterkoach.com/franklin2.htm"><em>Drag-U-La</em></a>, added a UI (in SwiftUI!)
     to configure Dragula&rsquo;s behavior, and put it onto GitHub.
 
     <h2>Conclusion: Don&rsquo;t be a drag, just be a queen</h2>
     <p> I had a lot of fun working on this project. It&rsquo;s been the highlight of the Recurse Center for me so far.
-    I didn&rsquo;t know any Swift, a lot of the people I paired with didn&rsquo;t know any Swift, and I was able to 
-    get this up and running in less than a week. It was the most <a href="https://ntietz.com/blog/write-more-useless-software/">useless</a>
-    software I ever wrote.</p>
-    <p>Sometimes I have Dragula enabled, and drag a small text file, and it flies across the screen. And I haven&rsquo;t stopped smiling
+      I didn&rsquo;t know any Swift, a lot of the people I paired with didn&rsquo;t know any Swift, and I was able to
+      get this up and running in less than a week. It was the most <a
+        href="https://ntietz.com/blog/write-more-useless-software/">useless</a>
+      software I ever wrote.</p>
+    <p>Sometimes I have Dragula enabled, and drag a small text file, and it flies across the screen. And I haven&rsquo;t
+      stopped smiling
       at that.</p>
-    <p>How is it like to use Dragula? <a href="https://github.com/pbt/dragula">Install it yourself and find out.</a> 
-    Maybe install it on a friend&rsquo;s computer to prank them. But my hope is that at least one soul pokes around 
-    and learns how they can use the APIs I used to control computers in new, unexpected, fun ways.
+    <p>How is it like to use Dragula? <a href="https://github.com/pbt/dragula">Install it yourself and find out.</a>
+      Maybe install it on a friend&rsquo;s computer to prank them. But my hope is that at least one soul pokes around
+      and learns how they can use the APIs I used to control computers in new, unexpected, fun ways.
     </p>
 
   </article>
