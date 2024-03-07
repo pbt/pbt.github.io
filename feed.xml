@@ -2,12 +2,28 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-	<title>p.b. to</title>
+	<title>p.b. hua</title>
 	<link href="https://pbt.dev/feed.xml" rel="self" />
 	<link href="https://pbt.dev/" />
 	<id>urn:uuid:fa7f725a-1e91-443e-b8ab-badf41d23c49</id>
-	<updated>2024-02-29T05:00:00Z</updated>
+	<updated>2024-03-07T01:00:00Z</updated>
 		
+	<entry>
+		<title>Adding weight to drag and drop in macOS Finder</title>
+		<link href="https://pbt.dev/blog/dragula/" />
+		<id>urn:uuid:92610718-1cc3-4be5-84d7-a4ea2761cce6</id>
+    <published>2024-03-07T01:15:00Z</published>
+		<updated>2024-03-07T01:15:00Z</updated>
+		<summary>or: how to clean up from scratch</summary>
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p><a href="https://pbt.dev/blog/dragula/">view on pbt.dev</a></p>
+			</div>
+		</content>
+		<author>
+			<name>p.b. hua</name>
+		</author>
+	</entry>
 	<entry>
 		<title>Letting go of frameworks, and how that feels</title>
 		<link href="https://pbt.dev/blog/frameworks/" />
@@ -21,7 +37,7 @@
 			</div>
 		</content>
 		<author>
-			<name>p.b. to</name>
+			<name>p.b. hua</name>
 		</author>
 	</entry>
 	<entry>
@@ -37,7 +53,7 @@
 			</div>
 		</content>
 		<author>
-			<name>p.b. to</name>
+			<name>p.b. hua</name>
 		</author>
 	</entry>
 </feed>
