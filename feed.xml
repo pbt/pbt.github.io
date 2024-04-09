@@ -1,59 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href="/_/feed.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-
-	<title>p.b. hua</title>
-	<link href="https://pbt.dev/feed.xml" rel="self" />
-	<link href="https://pbt.dev/" />
-	<id>https://pbt.dev/feed.xml</id>
-	<updated>2024-03-07T01:00:00Z</updated>
-		
-	<entry>
-		<title>Adding weight to drag and drop in macOS Finder</title>
-		<link href="https://pbt.dev/blog/dragula/" />
-		<id>urn:uuid:92610718-1cc3-4be5-84d7-a4ea2761cce6</id>
-    	<published>2024-03-07T01:15:00Z</published>
-		<updated>2024-03-07T01:15:00Z</updated>
-		<summary>or: how to clean up from scratch</summary>
-		<content type="xhtml">
-			<div xmlns="http://www.w3.org/1999/xhtml">
-				<p><a href="https://pbt.dev/blog/dragula/">view on pbt.dev</a></p>
-			</div>
-		</content>
-		<author>
-			<name>p.b. hua</name>
-		</author>
-	</entry>
-	<entry>
-		<title>Letting go of frameworks, and how that feels</title>
-		<link href="https://pbt.dev/blog/frameworks/" />
-		<id>urn:uuid:97ac9147-af16-4bfb-bf68-6556d9dcbe98</id>
-    	<published>2024-01-09T05:00:00Z</published>
-		<updated>2024-02-29T05:00:00Z</updated>
-		<summary>or: how to clean up from scratch</summary>
-		<content type="xhtml">
-			<div xmlns="http://www.w3.org/1999/xhtml">
-				<p><a href="https://pbt.dev/blog/frameworks/">view on pbt.dev</a></p>
-			</div>
-		</content>
-		<author>
-			<name>p.b. hua</name>
-		</author>
-	</entry>
-	<entry>
-		<title>Hello, again</title>
-		<link href="https://pbt.dev/blog/hello/" />
-		<id>urn:uuid:a new era of personal website</id>
-    	<published>2024-01-03T00:00:00Z</published>
-		<updated>2024-02-29T00:00:00Z</updated>
-		<summary>a new era of personal website</summary>
-		<content type="xhtml">
-			<div xmlns="http://www.w3.org/1999/xhtml">
-				<p><a href="https://pbt.dev/blog/hello/">view on pbt.dev</a></p>
-			</div>
-		</content>
-		<author>
-			<name>p.b. hua</name>
-		</author>
-	</entry>
+  <title>p.b. hua</title>
+  <link href="https://pbt.dev/feed.xml" rel="self" />
+  <link href="https://pbt.dev/" />
+  <id>https://pbt.dev/feed.xml</id>
+  <updated>2024-03-07T01:00:00Z</updated>
+  <entry>
+    <title>An interactive quine</title>
+    <link href="https://pbt.dev/blog/quine/" />
+    <id>https://pbt.dev/blog/quine/</id>
+    <published>2024-04-09T01:15:00Z</published>
+    <updated>2024-04-09T01:15:00Z</updated>
+    <summary>What if the user interface was the source code? What if the source code was the user interface?</summary>
+    <content type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+          <a href="https://pbt.dev/blog/quine/">view on pbt.dev</a>
+        </p>
+      </div>
+    </content>
+    <author>
+      <name>p.b. hua</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Adding weight to drag and drop in macOS Finder</title>
+    <link href="https://pbt.dev/blog/dragula/" />
+    <id>urn:uuid:92610718-1cc3-4be5-84d7-a4ea2761cce6</id>
+    <published>2024-03-07T01:15:00Z</published>
+    <updated>2024-03-07T01:15:00Z</updated>
+    <summary>or: how to clean up from scratch</summary>
+    <content type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+          <a href="https://pbt.dev/blog/dragula/">view on pbt.dev</a>
+        </p>
+      </div>
+    </content>
+    <author>
+      <name>p.b. hua</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Letting go of frameworks, and how that feels</title>
+    <link href="https://pbt.dev/blog/frameworks/" />
+    <id>urn:uuid:97ac9147-af16-4bfb-bf68-6556d9dcbe98</id>
+    <published>2024-01-09T05:00:00Z</published>
+    <updated>2024-02-29T05:00:00Z</updated>
+    <summary>or: how to clean up from scratch</summary>
+    <content type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+          <a href="https://pbt.dev/blog/frameworks/">view on pbt.dev</a>
+        </p>
+      </div>
+    </content>
+    <author>
+      <name>p.b. hua</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Hello, again</title>
+    <link href="https://pbt.dev/blog/hello/" />
+    <id>urn:uuid:a new era of personal website</id>
+    <published>2024-01-03T00:00:00Z</published>
+    <updated>2024-02-29T00:00:00Z</updated>
+    <summary>a new era of personal website</summary>
+    <content type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+          <a href="https://pbt.dev/blog/hello/">view on pbt.dev</a>
+        </p>
+      </div>
+    </content>
+    <author>
+      <name>p.b. hua</name>
+    </author>
+  </entry>
 </feed>
