@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href="/_/feed.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>p.b. hua</title>
+  <title>pb</title>
   <link href="https://pbt.dev/feed.xml" rel="self" />
   <link href="https://pbt.dev/" />
   <id>https://pbt.dev/feed.xml</id>
@@ -21,7 +21,7 @@
       </div>
     </content>
     <author>
-      <name>p.b. hua</name>
+      <name>pb</name>
     </author>
   </entry>
   <entry>
@@ -39,7 +39,7 @@
       </div>
     </content>
     <author>
-      <name>p.b. hua</name>
+      <name>pb</name>
     </author>
   </entry>
   <entry>
@@ -57,7 +57,7 @@
       </div>
     </content>
     <author>
-      <name>p.b. hua</name>
+      <name>pb</name>
     </author>
   </entry>
   <entry>
@@ -75,7 +75,7 @@
       </div>
     </content>
     <author>
-      <name>p.b. hua</name>
+      <name>pb</name>
     </author>
   </entry>
 </feed>
