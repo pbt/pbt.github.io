@@ -14,7 +14,7 @@ body {
 
 .note-thumbnail {
   border-top: 1px solid;
-  padding: 1rem;
+  padding: 1rem 0;
 
   & * {
     padding: 0;
