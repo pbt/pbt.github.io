@@ -5,7 +5,25 @@
   <link href="https://pbt.dev/feed.xml" rel="self" />
   <link href="https://pbt.dev/" />
   <id>https://pbt.dev/feed.xml</id>
-  <updated>2024-04-09T01:00:00Z</updated>
+  <updated>2024-10-05T08:30:00Z</updated>
+  <entry>
+    <title>What the webdev culture's feeling</title>
+    <link href="https://pbt.dev/textfiles/culture/" />
+    <id>https://pbt.dev/textfiles/culture/</id>
+    <published>2024-10-05T08:30:00Z</published>
+    <updated>2024-10-05T08:30:00Z</updated>
+    <summary>Articulating my thoughts and worries about how we make websites.</summary>
+    <content type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+          <a href="https://pbt.dev/textfiles/culture/">view on pbt.dev</a>
+        </p>
+      </div>
+    </content>
+    <author>
+      <name>pb</name>
+    </author>
+  </entry>
   <entry>
     <title>An interactive quine</title>
     <link href="https://pbt.dev/blog/quine/" />
