@@ -79,7 +79,7 @@
     font-optical-sizing: auto;
     margin: 0 auto;
     box-sizing: border-box;
-    padding: 2rem;
+    padding: var(--padding-sm);
     background-color: var(--bg-1);
     width: min(800px, 90vw);
     max-width: var(--maxwidth);
@@ -193,8 +193,13 @@
     padding-bottom: var(--padding-md);
   }
 
+  figure {
+    margin: 0;
+    padding: var(--padding-sm);
+  }
+
   footer {
-    margin-top: 1rem;
+    margin-top: var(--padding-md);
   }
   time {
     color: var(--text-1);
