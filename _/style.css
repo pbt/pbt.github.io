@@ -7,6 +7,7 @@
   :root {
     color-scheme: dark light;
     --padding-sm: 0.5rem;
+    --padding-lg: calc(var(--padding-sm) * 2.0);
     --padding-md: calc(var(--padding-sm) * 1.5);
     --padding-xs: calc(var(--padding-sm) * 0.5);
     --padding-xxs: calc(var(--padding-sm) * 0.25);
@@ -86,7 +87,7 @@
   }
 
   section, footer {
-    padding-top: 3rem;
+    padding-top: var(--padding-lg);
   }
 
   a {
