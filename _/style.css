@@ -11,7 +11,7 @@
     --padding-xs: calc(var(--padding-sm) * 0.5);
     --padding-xxs: calc(var(--padding-sm) * 0.25);
     --maxwidth: 800px;
-    --border-color: light-dark(#111, #333);
+    --border-color: light-dark(#aaa, #333);
     --outline-color: light-dark(#e5c890, #f9e2af);
     --bg-0:  light-dark(#FFF,#111);
     --bg-1: light-dark(#FFDBFD,#1B151A);
