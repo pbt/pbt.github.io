@@ -3,26 +3,27 @@
   <xsl:template match="/">
     <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
       <head>
-        <title><xsl:value-of select="/rss/channel/title"/><xsl:value-of select="/atom:feed/atom:title"/> Web Feed</title>
+        <title><xsl:value-of select="/rss/channel/title"/><xsl:value-of select="/atom:feed/atom:title"/>—Web Feed</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="_/style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
       </head>
       <body class="rss-feed">
-        <nav class="nav">
-          <div class="nav__notice">
+         <header>
+    <h1 class="name">The web feed of <b><i>pb</i></b></h1>
+  </header>
+  <main>
+  <aside class="note-thumbnail">
+          <div>
             <p><strong>This is a web feed,</strong> also known as an RSS or Atom feed. <strong>Subscribe</strong> by copying the URL below or from the address bar into your newsreader.</p>
-
             <p><code><xsl:value-of select="/rss/channel/docs"/><xsl:value-of select="/atom:feed/atom:id"/></code></p>
-
             <p>
-              Visit <a href="https://aboutfeeds.com">About Feeds</a> to get started with newsreaders and subscribing. It’s free.
+              If you want an introduction to curate your own personal web reader with RSS feeds (whether it be mine or of others), I like Molly White's <a href="https://www.citationneeded.news/curate-with-rss/">article</a>.
             </p>
           </div>
-
-          
-        </nav>
+          </aside>
         <div>
-          <header>
+        <section>
             <h1>
               <!-- https://commons.wikimedia.org/wiki/File:Feed-icon.svg -->
               <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="vertical-align: text-bottom; width: 1.2em; height: 1.2em;" class="pr-1" id="RSSicon" viewBox="0 0 256 256">
@@ -42,18 +43,18 @@
                 <path d="M184 213A140 140 0 0 0 44 73 V 38a175 175 0 0 1 175 175z" fill="#FFF"/>
               </svg>
 
-              Web Feed Preview
+              Recent Items
             </h1>
-
-            <h2><xsl:value-of select="/rss/channel/title"/><xsl:value-of select="/atom:feed/atom:title"/></h2>
+</section>
+           <!-- <h2><xsl:value-of select="/rss/channel/title"/><xsl:value-of select="/atom:feed/atom:title"/></h2>
             <p><xsl:value-of select="/rss/channel/description"/><xsl:value-of select="/atom:feed/atom:subtitle"/></p>
-
+            <p>
             <a target="_blank" href="https://pbt.dev/">
               Visit Website &#x2192;
-            </a>
-          </header>
-          <h2>Recent Items</h2>
+            </a></p>
+          <h2>Recent Items</h2>-->
           <xsl:for-each select="/atom:feed/atom:entry[position() &lt; 6]">
+          <section class="note-thumbnail">
             <h3>
               <a target="_blank">
                 <xsl:attribute name="href">
@@ -66,6 +67,7 @@
               Published: <xsl:value-of select="substring(atom:updated, 0, 11)" />
             </small>
             <p class="summary"><xsl:value-of select="atom:summary"/></p>
+            </section>
           </xsl:for-each>
 
           <xsl:for-each select="/rss/channel/item[position() &lt; 6]">
@@ -85,6 +87,7 @@
             </div>
           </xsl:for-each>
         </div>
+        </main>
       </body>
     </html>
   </xsl:template>
