@@ -13,7 +13,7 @@
     --maxwidth: 800px;
     --border-color: light-dark(#eee, #333);
     --outline-color: light-dark(#e5c890, #f9e2af);
-    --bg-0:  light-dark(#FFDBFD,#1B151A);
+    --bg-0:  light-dark(#FFF,#111);
     --bg-1: light-dark(#FFDBFD,#1B151A);
     --text-1: light-dark(#161616, #ddd);
     --font-size: 18px;
@@ -57,21 +57,25 @@
   .note-thumbnail {
     padding: 1rem 0;
 
-    & * {
-      padding: 0;
-      margin: 0;
-    }
   }
 
   .note-thumbnail {
     border-bottom: 1px solid var(--border-color);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    & :last-child {
+      padding: 0;
+    }
   }
 
   body {
     font-size: var(--font-size);
     color: var(--text-1);
     line-height: var(--line-height);
-    font-family: "Newsreader", serif;
+    font-family: "Newsreader", Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;;
     font-optical-sizing: auto;
     margin: 0 auto;
     box-sizing: border-box;
@@ -81,8 +85,8 @@
     max-width: var(--maxwidth);
   }
 
-  section {
-    padding-top: 2rem;
+  section, footer {
+    padding-top: 3rem;
   }
 
   a {
@@ -97,7 +101,7 @@
   }
 
   b, strong {
-    font-weight: 550;
+    font-weight: 565;
   }
 
   h1,
@@ -106,12 +110,12 @@
   h4,
   h5,
   h6 {
-    font-weight: 550;
+    font-weight: 555;
     text-wrap: balance;
     padding: 0; margin: 0;
   }
   h1 {
-    font-weight: 550;
+    font-weight: 545;
     font-size: 1.4rem;
   }
   h2 {
@@ -128,10 +132,11 @@
   img {
     max-width: 100%;
   }
-  pre {
-    background: var(--bg-1);
+  pre, code {
+    background: var(--bg-0);
     overflow: auto;
-    padding: 5px;
+    padding: 0.25rem;
+    border-radius: 0.5ch;
   }
   .footnotes,
   hr,
