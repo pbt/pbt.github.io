@@ -22,6 +22,11 @@
   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/applescript.min.js"></script>
   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/swift.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+
   <style>
     pre code {
       border-radius: var(--gap);
@@ -33,14 +38,14 @@
 
 <body class="post">
   <header>
-    <a href="/">
-      <h1 class="name">pb</h1>
-    </a>
-    <p class="slogan">sure, why not?</p>
-    <p class="slogan"><a href="https://github.com/pbt/dragula">source code</a></p>
+  <a href="/">
+    pb—
+  </a>
   </header>
   <article>
-    <h1>Adding weight to drag and drop in<br> macOS Finder</h1>
+    <h1>Adding weight to drag and drop to macOS Finder</h1>
+        <p class="slogan"><a href="https://github.com/pbt/dragula">source code</a></p>
+
     <aside>
       <p>
         <time datetime="2024-03-06">2024-03-06</time>
@@ -56,6 +61,7 @@
       </a>
     </figure>
     </aside>
+    <section>
 
     <p>
       I made <strong><a href="https://github.com/pbt/dragula">Dragula</a></strong>, a highly experimental extension to
@@ -77,6 +83,8 @@
 
     <p>You can view the <a href="https://github.com/pbt/dragula">source code</a>, or read on below to see why I did this
       and how I did it.</p>
+</section>
+    <section>
 
     <h2>The unbearable weightlessness of drag-and-drop</h2>
     <p>Drag-and-drop has been a mainstay of
@@ -113,6 +121,9 @@
         </p>
       </figcaption>
     </figure>
+    </section>
+        <section>
+
     <h2>First sketches</h2>
     <p>From the get-go, my initial idea was to use macOS&rsquo; <a
         href="https://developer.apple.com/documentation/appkit/nsaccessibility">accessibility APIs.</a>
@@ -145,6 +156,9 @@
       <li>Change the mouse sensitivity based on your selection
     </ol>
 
+    </section>
+        <section>
+
     <h2>Starting with dessert: Implementing mouse sensitivity changing</h2>
     <p>I woke up bright and early (10am, I think) on a Monday, ready to get started. Because I was supposed to learn
       Rust,
@@ -170,6 +184,7 @@
       code from Rectangle as reference. I also found it strangely useful to tackle things peripheral to the core
       functionality, such as the prompts to ask the user to enable accessibility permissions. But a day and a half in,
       and I still had not figured out how to actually read the Finder selection.
+</section>    <section>
 
     <h2>Go off, (Apple)Script</h2>
     <p>AppleScript is an automation scripting language for macOS. It has been part of the platform for a while, so
@@ -269,6 +284,7 @@ if !isMultiSelecting && element.getValue(.filename) is NSString,
       <code>DispatchQueue.global</code>, and while not particularly thread-safe, this wasn&rsquo;t really a concern of
       this
       code.
+</section>    <section>
 
     <h2>Multi-select</h2>
     <p>At this point, I was ready to demo Dragula to the Recurse Center. I got a lot of enthusiastic feedback and
@@ -304,6 +320,7 @@ end tell
     After this followed, I made a cute lil icon, inspired by the
     namesake <a href="http://www.munsterkoach.com/franklin2.htm"><em>Drag-U-La</em></a>, added a UI (in SwiftUI!)
     to configure Dragula&rsquo;s behavior, and put it onto GitHub.
+</section>    <section>
 
     <h2>Conclusion: Don&rsquo;t be a drag, just be a queen</h2>
     <p> I had a lot of fun working on this project. It&rsquo;s been the highlight of the Recurse Center for me so far.
@@ -318,14 +335,14 @@ end tell
       Maybe install it on a friend&rsquo;s computer to prank them. But my hope is that at least one soul pokes around
       and learns how they can use the APIs I used to control computers in new, unexpected, fun ways.
     </p>
-
+</section>
   </article>
 
   <script>hljs.highlightAll();</script>
 
   <footer>
     <p>
-      thanks to Alex Petros and Ava Fox for reading a draft of this post!</p>
+      thanks to <a href="https://alexanderpetros.com/">Alex Petros</a> and Ava Fox for reading a draft of this post!</p>
   </footer>
 
 </body>
