@@ -123,7 +123,7 @@
   h6 {
     font-weight: 450;
     text-wrap: balance;
-    padding: 0 0 var(--padding-sm) 0;
+    padding: 0 0 var(--padding-xs) 0;
     margin: 0;
   }
 
