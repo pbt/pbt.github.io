@@ -127,8 +127,8 @@
   }
 
   h1 {
-    /* Evaluates to 3.6rem for a 960px wide container, and 1.25rem for 360px */
-    font-size: clamp(1.25rem, 6.267cqi - 0.16rem, 3.6rem);
+    /* Evaluates to 3.6rem for a 960px wide container, and 2.4rem for 360px */
+    font-size: clamp(2.4rem, 1.68rem + 3.2cqi, 3.6rem);
     font-family: 'Fraunces', 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
     font-variation-settings:
       "SOFT" 100,
