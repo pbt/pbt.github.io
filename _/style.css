@@ -82,7 +82,7 @@
     color: var(--text-1);
     line-height: var(--line-height);
     font-family: "Newsreader", Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
-    font-weight: light-dark(400, 350);
+    font-weight: 375;
     font-optical-sizing: auto;
     margin: 0 auto;
     box-sizing: border-box;
@@ -134,7 +134,7 @@
     font-variation-settings:
       "SOFT" 100,
       "WONK" 1;
-    font-weight: light-dark(200, 160);
+    font-weight: 180;
   }
 
   h2 {
