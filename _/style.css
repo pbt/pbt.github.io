@@ -300,4 +300,12 @@
   }
 
 
+  .hero-img {
+    mask: url("footer.png") luminance center / contain no-repeat intersect,
+      linear-gradient(to bottom right, #eee, #666) luminance center;
+    background-color: var(--text-1);
+    height: 40dvh;
+    margin-top: var(--padding-lg);
+  }
+
 }
