@@ -12,6 +12,7 @@
     --padding-sm: var(--padding);
     --padding-xs: calc(var(--padding) * 0.75);
     --padding-xxs: calc(var(--padding) * 0.375);
+    --padding-xxxs: calc(var(--padding) * 0.1875);
     --maxwidth: 960px;
     --border-color: light-dark(#aaa, #444);
     --outline-color: light-dark(#e5c890, #f9e2af);
@@ -58,18 +59,24 @@
   }
 
   body {
-    container-type: inline-size;
     font-size: var(--font-size);
     color: var(--text-1);
     line-height: var(--line-height);
     font-family: "MD Lórien", Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
     font-weight: 400;
     font-optical-sizing: auto;
-    margin: 0 auto;
     box-sizing: border-box;
     padding: var(--padding-lg);
-    width: clamp(900px, 90vw);
-    max-width: var(--maxwidth);
+
+    &>main,
+    &>header,
+    &>footer,
+    &>article>* {
+      margin: 0 auto;
+      container-type: inline-size;
+      width: clamp(900px, 90vw);
+      max-width: var(--maxwidth);
+    }
   }
 
   section,
@@ -210,7 +217,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--padding-sm);
-
   }
 
 
@@ -287,22 +293,29 @@
   }
 
 
+  article>figure {
+    margin: 0;
+    max-width: initial;
+
+    & img {
+      object-fit: cover;
+    }
+  }
+
   & a:has(img),
   figure>:first-child {
     border: 0;
-    box-shadow: 0 0 0 var(--padding-xxs) var(--border-color);
-    border-radius: var(--padding-sm);
-
+    box-shadow: 0 0 0 0.1rem var(--border-color);
+    border-radius: var(--padding-xxxs);
+    overflow: clip;
   }
 
   a:has(img):hover {
-    box-shadow: 0 0 0 var(--padding-xxs) var(--outline-color);
+    box-shadow: 0 0 0 0.3rem var(--outline-color);
   }
 
-
   .hero-img {
-    mask: url("footer.png") luminance center / contain no-repeat intersect,
-      linear-gradient(to bottom right, #eee, #666) luminance center;
+    mask: url("footer.png") luminance center / contain no-repeat;
     background-color: var(--text-1);
     height: 40dvh;
     margin-top: var(--padding-lg);
