@@ -16,6 +16,7 @@
     --maxwidth: 960px;
     --border-color: light-dark(#aaa, #444);
     --outline-color: light-dark(#e5c890, #f9e2af);
+    --accent-color: light-dark(#3F113C, #FFDBFD);
     --bg-0: light-dark(#FFF, #111);
     --bg-1: light-dark(#FFE6FE, #110F11);
     --text-1: light-dark(#111, #FFF0FF);
@@ -85,7 +86,7 @@
   }
 
   a {
-    color: var(--text-1);
+    color: var(--accent-color);
     text-decoration: none;
     border-bottom: 1px solid var(--border-color);
     transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1) all;
@@ -115,18 +116,19 @@
 
   h1,
   h2 {
+    color: var(--accent-color);
     /* Evaluates to 3.6rem for a 960px wide container, and 2.4rem for 360px */
     font-size: clamp(2.4rem, 1.68rem + 3.2cqi, 3.6rem);
     font-family: 'Fraunces', 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
     font-variation-settings:
       "SOFT" 100,
       "WONK" 1;
-    font-weight: 200;
+    font-weight: 240;
   }
 
   h2 {
-    font-size: 1.5rem;
-    font-weight: 240;
+    font-size: 1.8rem;
+    font-weight: 300;
   }
 
   h3 {
@@ -316,7 +318,7 @@
 
   .hero-img {
     mask: url("footer.png") luminance center / contain no-repeat;
-    background-color: var(--text-1);
+    background-color: var(--accent-color);
     height: 40dvh;
     margin-top: var(--padding-lg);
   }
