@@ -1,16 +1,17 @@
-@layer util, theme, base, layout, nav-rules;
+@layer util, theme, base, layout, interface;
 
 @layer util {}
 
 @layer theme {
   :root {
     color-scheme: dark light;
-    /* Evaluates to 0.5rem for a 960px wide container, and 0.25rem for 360px */
-    --padding-sm: clamp(0.25rem, 0.1rem + 0.667cqi, 0.5rem);
-    --padding-lg: calc(var(--padding-sm) * 2.0);
-    --padding-md: calc(var(--padding-sm) * 1.5);
-    --padding-xs: calc(var(--padding-sm) * 0.5);
-    --padding-xxs: calc(var(--padding-sm) * 0.25);
+    /* Evaluates to 2rem for a 720px wide container, and 1rem for 360px */
+    --padding: clamp(1rem, 0rem + 4.444cqi, 2rem);
+    --padding-lg: calc(var(--padding) * 1.5);
+    --padding-md: calc(var(--padding) * 1.25);
+    --padding-sm: var(--padding);
+    --padding-xs: calc(var(--padding) * 0.75);
+    --padding-xxs: calc(var(--padding) * 0.375);
     --maxwidth: 960px;
     --border-color: light-dark(#aaa, #444);
     --outline-color: light-dark(#e5c890, #f9e2af);
@@ -18,13 +19,7 @@
     --bg-1: light-dark(#FFE6FE, #110F11);
     --text-1: light-dark(#111, #FFF0FF);
     --font-size: 20px;
-    --line-height: 1.2;
-  }
-
-  @media screen and (min-width: 721px) {
-    :root {
-      --padding-sm: 2rem;
-    }
+    --line-height: 1.4;
   }
 }
 
@@ -56,39 +51,23 @@
     box-sizing: border-box;
   }
 
-  .note-thumbnail {
-    padding: 1rem 0;
 
-  }
+  html {
 
-  .note-thumbnail {
-    border-bottom: 1px solid var(--border-color);
-
-    & :is(h1, h2, h3, h4, h5, h6) {
-      padding: 0;
-    }
-
-    &:last-child {
-      border-bottom: none;
-    }
-
-    & :last-child {
-      padding: 0;
-    }
+    background-color: var(--bg-1);
   }
 
   body {
+    container-type: inline-size;
     font-size: var(--font-size);
     color: var(--text-1);
     line-height: var(--line-height);
-    font-family: "Newsreader", Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
-    font-weight: 375;
+    font-family: "MD Lórien", Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+    font-weight: 400;
     font-optical-sizing: auto;
     margin: 0 auto;
     box-sizing: border-box;
     padding: var(--padding-lg);
-    background-repeat: repeat;
-    background-color: var(--bg-1);
     width: clamp(900px, 90vw);
     max-width: var(--maxwidth);
   }
@@ -123,31 +102,28 @@
   h6 {
     font-weight: 450;
     text-wrap: balance;
-    padding: 0 0 var(--padding-xs) 0;
+    padding: 0 0 var(--padding-xxs) 0;
     margin: 0;
   }
 
-  h1 {
+  h1,
+  h2 {
     /* Evaluates to 3.6rem for a 960px wide container, and 2.4rem for 360px */
     font-size: clamp(2.4rem, 1.68rem + 3.2cqi, 3.6rem);
     font-family: 'Fraunces', 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
     font-variation-settings:
       "SOFT" 100,
       "WONK" 1;
-    font-weight: 180;
+    font-weight: 200;
   }
 
   h2 {
-    font-size: 1.4rem;
-    font-family: 'Fraunces', 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
-    font-variation-settings:
-      "SOFT" 100,
-      "WONK" 1;
-    font-weight: 450;
+    font-size: 1.5rem;
+    font-weight: 240;
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   h4,
@@ -159,7 +135,7 @@
   p {
     text-wrap: pretty;
     margin: 0;
-    padding: 0 0 1rem 0;
+    padding: 0 0 var(--padding-md) 0;
   }
 
   img {
@@ -212,8 +188,8 @@
   }
 
   header {
-    line-height: 1;
-    padding: 2rem 0;
+    line-height: 1.1;
+    padding: var(--padding-md) 0;
 
   }
 
@@ -240,7 +216,20 @@
 
   footer {
     margin-top: var(--padding-sm);
-    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-xs);
+
+    &>* {
+      flex: 1;
+    }
+  }
+
+  @container (width > 700px) {
+    footer {
+      flex-direction: row;
+    }
+
   }
 
   time {
@@ -269,13 +258,34 @@
     border-radius: 0.125rem;
 
     &#main {
+      >* {
+        flex: 1;
+      }
+
       outline: 0;
     }
   }
 }
 
 
-@layer nav-rules {
+@layer interface {
+  .note-thumbnail {
+    padding: var(--padding-xxs) 0;
+    border-bottom: 1px solid var(--border-color);
+
+    & :is(h1, h2, h3, h4, h5, h6) {
+      padding: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    & :last-child {
+      padding: 0;
+    }
+  }
+
 
   & a:has(img),
   figure>:first-child {
