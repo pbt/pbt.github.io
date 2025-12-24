@@ -16,10 +16,10 @@
     --maxwidth: 960px;
     --border-color: light-dark(#aaa, #444);
     --outline-color: light-dark(#e5c890, #f9e2af);
-    --accent-color: light-dark(#3F113C, #FFDBFD);
+    --accent-color: light-dark(#3F113C, #FFDBE9);
     --bg-0: light-dark(#FFF, #111);
     --bg-1: light-dark(#FFE6FE, #110F11);
-    --text-1: light-dark(#111, #FFF0FF);
+    --text-1: light-dark(#111, #FFE9E9);
     --font-size: 20px;
     --line-height: 1.4;
   }
