@@ -16,7 +16,7 @@
     --maxwidth: 960px;
     --border-color: light-dark(#aaa, #444);
     --outline-color: light-dark(#e5c890, #f9e2af);
-    --accent-color: light-dark(#3F113C, #EFE9E9);
+    --accent-color: light-dark(#5F153E, #E5C890);
     --bg-0: light-dark(#FFF, #111);
     --bg-1: light-dark(#FFE6FE, #130F12);
     --text-1: light-dark(#111, #EED9D9);
@@ -116,7 +116,6 @@
 
   h1,
   h2 {
-    color: var(--accent-color);
     /* Evaluates to 3.6rem for a 960px wide container, and 2.4rem for 360px */
     font-size: clamp(2.4rem, 1.68rem + 3.2cqi, 3.6rem);
     font-family: 'Fraunces', 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
@@ -199,7 +198,6 @@
   header {
     line-height: 1.1;
     padding: var(--padding-md) 0;
-
   }
 
   main {
@@ -321,13 +319,14 @@
     background-size: contain;
     background-repeat: no-repeat;
     mix-blend-mode: screen;
-    height: 40dvh;
+    height: 35dvh;
+    transform: translateY(calc(var(--padding-md) * -1));
   }
 
   @media (prefers-color-scheme: light) {
     .hero-img {
-      filter: invert(0);
+      filter: invert(1);
+      mix-blend-mode: multiply;
     }
   }
-
 }
