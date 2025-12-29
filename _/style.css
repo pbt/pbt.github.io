@@ -317,14 +317,17 @@
   }
 
   .hero-img {
-    mask-image: url("/_/footer.png");
-    mask-mode: luminance;
-    mask-size: contain;
-    mask-repeat: no-repeat;
-
-    background-color: var(--accent-color);
+    background-image: url("/_/footer.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    mix-blend-mode: screen;
     height: 40dvh;
-    margin-top: var(--padding-lg);
+  }
+
+  @media (prefers-color-scheme: light) {
+    .hero-img {
+      filter: invert(0);
+    }
   }
 
 }
