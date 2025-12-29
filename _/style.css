@@ -317,7 +317,11 @@
   }
 
   .hero-img {
-    mask: url("footer.png") luminance center / contain no-repeat;
+    mask-image: url("/_/footer.png");
+    mask-mode: luminance;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+
     background-color: var(--accent-color);
     height: 40dvh;
     margin-top: var(--padding-lg);
