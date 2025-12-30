@@ -56,7 +56,6 @@
 
 
   html {
-
     background-color: var(--bg-1);
   }
 
@@ -68,7 +67,7 @@
     font-weight: 400;
     font-optical-sizing: auto;
     box-sizing: border-box;
-    padding: var(--padding-lg);
+    padding: var(--padding-md);
     container-type: inline-size;
 
     &>main,
