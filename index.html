@@ -25,77 +25,82 @@
   <script src="https://raw.githack.com/Qwuke/recurse-ring/main/static/ring.js" type="text/javascript"></script>
 </head>
 
-<body>
+<body class="home">
   <header>
+    <div class="name">
+      <h1><b><i>pb</i></b>, <span class="slogan">computerist, breathing, human</span></h1>
+      <p>
+        Welcome to my website.
+      </p>
+    </div>
     <div class="hero-img" aria-hidden="true"></div>
-    <h1 class="name"><b><i>pb</i></b>, <span class="slogan">computerist, breathing, human</span></h1>
   </header>
   <main>
-    <div class="content col">
-      <section class="professionally">
-        <h2>Professionally</h2>
-        <p>
-          I began programming a long time ago, but I have eight years of professional experience building across a vast
-          range of platforms and solving for problems in a variety of technical and product domains.
-        </p>
-        <p>Currently I work professionally as a software engineer at <b>Coverbase</b>. </p>
-        <aside style="display: flex; gap: 0.5rem;">
-          <i>More info:</i>
-          <div>
-            <p><a href="https://github.com/pbt">GitHub</a>,
-              <a href="https://codeberg.org/pompom">Codeberg</a>,
-              <a href="https://linkedin.com/in/polysemous">LinkedIn</a>.
-            </p>
-          </div>
-        </aside>
-      </section>
-      <section class="creative">
-        <h2>Creatively</h2>
-        <p>Here are some projects I did while at the <i>Recurse Center</i> in 2024:</p>
-        <div class="note-thumbnail">
-          <div>
-            <h3><a href="blog/quine/">An interactive web quine</a></h3>
-            <time datetime="2024-04-09">2024-04-09</time>
-            <p>What if the user interface was the source code? What if the source code was the user interface?</p>
-          </div>
+    <section class="professionally">
+      <h2>Professionally</h2>
+      <p>
+        I began programming a long time ago, but I have eight years of professional experience building across a vast
+        range of platforms and solving for problems in a variety of technical and product domains.
+      </p>
+      <p>Currently I work professionally as a software engineer at <b>Coverbase</b>. </p>
+      <aside style="display: flex; gap: var(--padding-xs);">
+        <i>More info:</i>
+        <div style="flex: 1;">
+          <p> <a href="https://codeberg.org/pompom">Codeberg</a>,
+            <a href="https://github.com/pbt">GitHub</a>,
+            <a href="https://linkedin.com/in/polysemous">LinkedIn</a>.
+          </p>
         </div>
-        <div class="note-thumbnail">
-          <h3><a href="blog/dragula/">Weighted drag and drop interactions in macOS Finder</a></h3>
-          <time datetime="2024-03-06">2024-03-06</time>
-          <div>
-            <p>I modified the basic drag and drop interaction to make it respond to file size.</p>
-          </div>
+      </aside>
+    </section>
+    <section class="creative">
+      <h2>Creatively</h2>
+      <p>Here are some projects I did:</p>
+      <div class="note-thumbnail">
+        <div>
+          <h3><a href="blog/quine/">An interactive web quine</a></h3>
+          <time datetime="2024-04-09">2024-04-09</time>
+          <p>What if the user interface was the source code? What if the source code was the user interface?</p>
         </div>
-      </section>
-      <section class="notes">
-        <h2>Notes</h2>
-        <p>I occasionally publish notes on this website.</p>
-        <div class="note-thumbnail">
+      </div>
+      <div class="note-thumbnail">
+        <h3><a href="blog/dragula/">Weighted drag and drop interactions in macOS Finder</a></h3>
+        <time datetime="2024-03-06">2024-03-06</time>
+        <div>
+          <p>I modified the basic drag and drop interaction to make it respond to file size.</p>
+        </div>
+      </div>
+    </section>
+    <section class="notes">
+      <h2>Notes</h2>
+      <p>I occasionally publish notes on this website.</p>
+      <div class="note-thumbnail">
+        <div>
+          <h3><a href="blog/frameworks/">Letting go of frameworks and how that feels</a></h3>
           <time datetime="2024-01-09">2024-01-09</time>
-          <div>
-            <h3><a href="blog/frameworks/">Letting go of frameworks and how that feels</a></h3>
-            <p>Starting over again is a crucial process.</p>
-          </div>
+          <p>Starting over again is a crucial process.</p>
         </div>
-        <div class="note-thumbnail">
+      </div>
+      <div class="note-thumbnail">
+        <div>
+          <h3><a href="blog/hello/">Hello, again</a></h3>
           <time datetime="2024-01-09">2024-01-03</time>
-          <div>
-            <h3><a href="blog/hello/">Hello, again</a></h3>
-            <p>A new era of personal website.</p>
-          </div>
+          <p>A new era of personal website.</p>
         </div>
-        </details>
-      </section>
-    </div>
+      </div>
+    </section>
   </main>
   <footer>
-    <p class="colophon"><a href="/colophon">View the colophon.</a> Dreamed up
-      in Queens, NYC.</p>
-    <p> &copy;2024—2025 pb (Persephone Beatrice Hua). <a href="mailto:pb@pbt.dev">Email me.</a></p>
-    <div style="display:flex; flex-direction: column; justify-content: space-between; gap: 1rem;">
+    <div>
+      <p>&copy;MMXXIV&ndash;MMXXVI pb (Persephone Beatrice Hua).</p>
+      <p> <a href="mailto:pb@pbt.dev">Email me.</a></p>
+      <p class="colophon"><a href="/colophon">View the colophon.</a> Dreamed up
+        in Queens, NYC.</p>
+    </div>
+    <div style="display:flex; flex-direction: column; align-items: center; gap: 1rem;">
       <div><a id="rc-ring-home" data-rc-uuid="7bdfcb2e-8502-4ec3-a89a-46377f4168cc" href="https://ring.recurse.com/">The
           Recurse Webring</a></div>
-      <div>
+      <div style="display:flex; flex-direction: row; justify-content: space-between; gap: 1rem;">
         <a aria-label="Previous" id="rc-ring-prev" href="https://ring.recurse.com/prev?id=22">←</a>
         <a id="rc-ring-rand" href="https://ring.recurse.com/rand">(Random)</a>
         <a id="rc-ring-next" aria-label="Next" href="https://ring.recurse.com/next?id=22">→</a>

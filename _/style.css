@@ -5,29 +5,30 @@
 @layer theme {
   :root {
     color-scheme: dark light;
-    /* Evaluates to 2rem for a 720px wide container, and 1rem for 360px */
-    --padding: clamp(1rem, 0rem + 4.444cqi, 2rem);
-    --padding-lg: calc(var(--padding) * 1.5);
-    --padding-md: calc(var(--padding) * 1.25);
-    --padding-sm: var(--padding);
-    --padding-xs: calc(var(--padding) * 0.75);
-    --padding-xxs: calc(var(--padding) * 0.375);
-    --padding-xxxs: calc(var(--padding) * 0.1875);
+    /* Evaluates to 2rem for a 960px wide container, and 0.75rem for 360px */
+    --p: clamp(0.75rem, 0rem + 3.333cqi, 2rem);
+    --padding-lg: calc(var(--p) * 1.75);
+    --padding-md: calc(var(--p) * 1.25);
+    --padding-sm: var(--p);
+    --padding-xs: calc(var(--p) * 0.75);
+    --padding-xxs: calc(var(--p) * 0.375);
+    --padding-xxxs: calc(var(--p) * 0.1875);
     --maxwidth: 960px;
-    --border-color: light-dark(#aaa, #444);
-    --outline-color: light-dark(#e5c890, #f9e2af);
-    --accent-color: light-dark(#6E203E, #E5C890);
+    --c-border: light-dark(#aaa, #444);
+    --c-outline: light-dark(#E5C870, #f9e2af);
+    --c-accent: light-dark(#6E203E, #E5C870);
+    --c-text: light-dark(#111, #EED9D9);
     --bg-0: light-dark(#FFF, #111);
     --bg-1: light-dark(#FFE6FE, #130F12);
-    --text-1: light-dark(#111, #EED9D9);
-    --font-size: 20px;
+    /* Evaluates to 1.125rem for a 960px wide container, and 1rem for 360px */
+    --font-size: clamp(1rem, 0.925rem + 0.333cqi, 1.125rem);
     --line-height: 1.4;
   }
 }
 
 @layer base {
   .skip-to-content-link {
-    background: var(--outline-color);
+    background: var(--c-outline);
     color: var(--bg-0);
     display: block;
     padding: var(--padding-xxs);
@@ -60,39 +61,35 @@
   }
 
   body {
-    font-size: var(--font-size);
-    color: var(--text-1);
+    color: var(--c-text);
     line-height: var(--line-height);
     font-family: "MD Lórien", Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+    font-size: var(--font-size);
     font-weight: 400;
     font-optical-sizing: auto;
     box-sizing: border-box;
     padding: var(--padding-lg);
+    container-type: inline-size;
 
     &>main,
     &>header,
     &>footer,
     &>article>* {
       margin: 0 auto;
-      container-type: inline-size;
       width: clamp(900px, 90vw);
       max-width: var(--maxwidth);
     }
   }
 
-  section,
-  footer {
-    padding-top: var(--padding-md);
-  }
 
   a {
-    color: var(--accent-color);
+    color: var(--c-accent);
     text-decoration: none;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--c-border);
     transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1) all;
 
     &:hover {
-      border-bottom: 1px solid var(--text-1);
+      border-bottom: 1px solid var(--c-text);
       text-shadow: 0 0.1ch 0.5ch rgba(0, 0, 0, 0.2);
     }
   }
@@ -110,28 +107,31 @@
   h6 {
     font-weight: 450;
     text-wrap: balance;
-    padding: 0 0 var(--padding-xxs) 0;
+    padding: 0 0 calc(var(--font-size) / 2) 0;
     margin: 0;
   }
 
   h1,
   h2 {
     /* Evaluates to 3.6rem for a 960px wide container, and 2.4rem for 360px */
-    font-size: clamp(2.4rem, 1.68rem + 3.2cqi, 3.6rem);
     font-family: 'Fraunces', 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
     font-variation-settings:
       "SOFT" 100,
       "WONK" 1;
+    font-size: clamp(2.4rem, 1.68rem + 3.2cqi, 3.6rem);
     font-weight: 240;
   }
 
   h2 {
-    font-size: 1.8rem;
+    font-size: calc(var(--font-size) * 1.5);
+    line-height: calc(var(--line-height) / 1.5);
     font-weight: 300;
+    padding-top: calc(var(--font-size));
   }
 
   h3 {
-    font-size: 1.3rem;
+    font-size: calc(var(--font-size) * 1.2);
+    line-height: calc(var(--line-height) / 1.2);
   }
 
   h4,
@@ -143,7 +143,7 @@
   p {
     text-wrap: pretty;
     margin: 0;
-    padding: 0 0 var(--padding-md) 0;
+    padding: 0 0 calc(var(--font-size) * var(--line-height)) 0;
   }
 
   img {
@@ -162,11 +162,11 @@
   .box {
     margin: var(--padding-sm) calc(var(--padding-sm) * -1);
     padding: var(--padding-xs) var(--padding-sm);
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--c-border);
   }
 
   .box {
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--c-border);
   }
 
   .footnotes {
@@ -196,7 +196,6 @@
   }
 
   header {
-    line-height: 1.1;
     padding: var(--padding-md) 0;
   }
 
@@ -229,24 +228,23 @@
     &>* {
       flex: 1;
     }
-  }
 
-  @container (width > 700px) {
-    footer {
-      flex-direction: row;
+    & p {
+      padding: 0;
     }
-
   }
+
 
   time {
-    color: var(--text-1);
+    color: var(--c-text);
+    opacity: 0.9;
   }
 
   blockquote {
     margin: var(--padding-sm);
     margin-left: var(--padding-xs);
     padding-left: calc(var(--padding-xs));
-    border-left: 0.25rem solid var(--outline-color);
+    border-left: 0.25rem solid var(--c-outline);
   }
 
   :popover-open {
@@ -255,12 +253,12 @@
     max-width: var(--maxwidth);
     border-radius: 2px;
     background: var(--bg-1);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--c-border);
     box-shadow: 0 0.1rem 0.5rem rgb(0 0 0/25);
   }
 
   :target {
-    outline: 0.25rem solid var(--outline-color);
+    outline: 0.25rem solid var(--c-outline);
     border-radius: 0.125rem;
 
     &#main {
@@ -275,9 +273,58 @@
 
 
 @layer interface {
+  .home {
+    & .name h1 {
+      line-height: 1.1;
+      /* Evaluates to 4.1rem for a 960px wide container, and 3rem for 360px */
+      font-size: clamp(3rem, 2.34rem + 2.933cqi, 4.1rem);
+    }
+
+    & main {
+      display: flex;
+      flex-direction: column;
+      gap: var(--padding-md);
+      padding-bottom: var(--padding-lg);
+    }
+
+    & header {
+      gap: var(--padding-md);
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  @container (width > 640px) {
+    .home header {
+      flex-direction: row;
+
+      & .name {
+        flex: 2;
+      }
+
+      & .hero-img {
+        flex: 1;
+      }
+    }
+
+    .home main {
+      flex-direction: row;
+
+      & * {
+        flex: 1;
+      }
+    }
+
+    footer {
+      flex-direction: row;
+    }
+
+  }
+
   .note-thumbnail {
-    padding: var(--padding-xxs) 0;
-    border-bottom: 1px solid var(--border-color);
+    padding: calc(var(--font-size) * var(--line-height) / 2) 0;
+    border-bottom: 1px solid var(--c-border);
+    margin-bottom: -1px;
 
     & :is(h1, h2, h3, h4, h5, h6) {
       padding: 0;
@@ -289,6 +336,12 @@
 
     & :last-child {
       padding: 0;
+    }
+
+    & time {
+      display: block;
+      font-size: 80%;
+      line-height: calc(var(--line-height) * 1.5);
     }
   }
 
@@ -305,22 +358,23 @@
   & a:has(img),
   figure>:first-child {
     border: 0;
-    box-shadow: 0 0 0 0.1rem var(--border-color);
+    box-shadow: 0 0 0 0.1rem var(--c-border);
     border-radius: var(--padding-xxxs);
     overflow: clip;
   }
 
   a:has(img):hover {
-    box-shadow: 0 0 0 0.3rem var(--outline-color);
+    box-shadow: 0 0 0 0.3rem var(--c-outline);
   }
 
   .hero-img {
+    background-blend-mode: normal;
     background-image: url("/_/footer.png");
     background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
     mix-blend-mode: screen;
     height: 35dvh;
-    transform: translateY(calc(var(--padding-md) * -1));
   }
 
   @media (prefers-color-scheme: light) {
