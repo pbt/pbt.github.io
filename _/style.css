@@ -370,7 +370,7 @@
     background-blend-mode: normal;
     background-image: url("/_/footer.png");
     background-size: contain;
-    background-position: center;
+    background-position: center top;
     background-repeat: no-repeat;
     mix-blend-mode: screen;
     height: 35dvh;
