@@ -367,6 +367,7 @@
   }
 
   .hero-img {
+    image-rendering: pixelated;
     background-blend-mode: normal;
     background-image: url("/_/footer.png");
     background-size: contain;
