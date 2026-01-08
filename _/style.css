@@ -13,7 +13,9 @@
     --padding-xs: calc(var(--p) * 0.75);
     --padding-xxs: calc(var(--p) * 0.375);
     --padding-xxxs: calc(var(--p) * 0.1875);
-    --maxwidth: 960px;
+    --maxwidth-md: 36rem;
+    --maxwidth-xl: 80rem;
+    --maxwidth: var(--maxwidth-md);
     --c-border: light-dark(#aaa, #444);
     --c-outline: light-dark(#E5C870, #f9e2af);
     --c-accent: light-dark(#6E203E, #E5C870);
@@ -78,6 +80,7 @@
       width: clamp(900px, 90vw);
       max-width: var(--maxwidth);
     }
+
   }
 
 
@@ -112,11 +115,11 @@
 
   h1,
   h2 {
-    /* Evaluates to 3.6rem for a 960px wide container, and 2.4rem for 360px */
     font-family: 'Fraunces', 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
     font-variation-settings:
       "SOFT" 100,
       "WONK" 1;
+    /* Evaluates to 3.6rem for a 960px wide container, and 2.4rem for 360px */
     font-size: clamp(2.4rem, 1.68rem + 3.2cqi, 3.6rem);
     font-weight: 240;
   }
@@ -273,6 +276,8 @@
 
 @layer interface {
   .home {
+    --maxwidth: var(--maxwidth-xl);
+
     & .name h1 {
       line-height: 1.1;
       /* Evaluates to 4.1rem for a 960px wide container, and 3rem for 360px */

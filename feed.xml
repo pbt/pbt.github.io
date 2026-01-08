@@ -43,12 +43,12 @@
     </author>
   </entry>
   <entry>
-    <title>Adding weight to drag and drop in macOS Finder</title>
+    <title>Adding weight to drag and drop</title>
     <link href="https://pbt.dev/blog/dragula/" />
     <id>urn:uuid:92610718-1cc3-4be5-84d7-a4ea2761cce6</id>
     <published>2024-03-07T01:15:00Z</published>
     <updated>2024-03-07T01:15:00Z</updated>
-    <summary>Life is a drag, so why not feel it?</summary>
+    <summary>Life is a drag sometimes, and so should your computer.</summary>
     <content type="xhtml">
       <div xmlns="http://www.w3.org/1999/xhtml">
         <p>
