@@ -58,7 +58,8 @@
     </aside>
     <figure>
       <a href="https://share.cleanshot.com/Gz9S9WXy" style="background: var(--text-1)">
-        <img style="object-fit: cover; aspect-ratio: 3; width: 100%; padding: 0; mix-blend-mode: luminosity;"
+        <img
+          style="object-fit: cover; image-rendering: pixelated; width: 100%; aspect-ratio: 3; padding: 0; mix-blend-mode: luminosity;"
           alt="a screenshot of Dragula, a weighted-drag-and-drop experiment" src="img/demo.png">
       </a>
       <figcaption>
@@ -111,23 +112,22 @@
         Differentiating
         drag and drop based on file size seemed like a great first step.</p>
 
-      <p>(plus, I thought it would be silly)</p>
-      <br>
-      <figure>
-        <img
-          style="border-radius: var(--gap); border: 1px solid var(--highlight); object-fit: cover; aspect-ratio: 2; width: 100%; padding: 0;"
-          src="img/weightlessness.png" alt="A man, with the icon for macOS Finder superimposed on top,
+      <p>(plus, I thought it would be silly)</p><br>
+    </section>
+    <figure>
+      <img
+        style="border-radius: var(--gap); border: 1px solid var(--highlight); object-fit: cover; aspect-ratio: 2; width: 100%; padding: 0;"
+        src="img/weightlessness.png" alt="A man, with the icon for macOS Finder superimposed on top,
          is next to a scale. He is surrounded by his friends, attempting to explain why Xcode and the
          file for an emoji feel the same, despite having vastly different file sizes.">
-        <figcaption>
-          <p style="display: block; text-align: center; width: 100%;">&ldquo;But
-            Xcode&rsquo;s heavier
-            than emojis!&rdquo; <small><a href="https://www.youtube.com/watch?v=-fC2oke5MFg">With apologies to
-                Limmy.</a></small>
-          </p>
-        </figcaption>
-      </figure>
-    </section>
+      <figcaption>
+        <p>&ldquo;But
+          Xcode&rsquo;s heavier
+          than emojis!&rdquo; <small><a href="https://www.youtube.com/watch?v=-fC2oke5MFg">With apologies to
+              Limmy.</a></small>
+        </p>
+      </figcaption>
+    </figure>
     <section>
 
       <h2>First sketches</h2>
@@ -202,26 +202,37 @@
         it&rsquo;s
         rather capable. For example, you can do this to get the Finder selection:</p>
 
+    </section>
+    <figure>
       <pre><code class="language-applescript">tell application "Finder" to get the selection</code></pre>
-
-      This returns a list of files that looks like this:
-
+    </figure>
+    <section>
+      <p>This returns a list of files that looks like this:</p>
+    </section>
+    <figure>
       <pre><code class="language-applescript">
           {application file "Xcode.app" of folder "Applications" of startup disk
           of application "Finder", application file "Visual Studio Code.app" of folder "Applications"
           of startup disk of application "Finder"}
-        </code>
-      </pre>
+        </code></pre>
+    </figure>
+    <section>
 
-      <p> You know, there was a world where everything looked like AppleScript. I think that world would have been
-        kind of cool. But I didn&rsquo;t know what to do with this. I was used to standard POSIX paths and C-style
+      <p> You know, there was a world where everything looked like AppleScript. I think that world would have
+        been
+        kind of cool. But I didn&rsquo;t know what to do with this. I was used to standard POSIX paths and
+        C-style
         imperative
         programming, and so was everyone else. And documentation was very scant.
 
-      <p> I decided to use AppleScript to get the selection size directly. For those frantically searching, human or
-        computer, here&rsquo;s the code to do that that will return the selection size in bytes, including zero
+      <p> I decided to use AppleScript to get the selection size directly. For those frantically searching,
+        human or
+        computer, here&rsquo;s the code to do that that will return the selection size in bytes, including
+        zero
         if there is no selection:</p>
 
+    </section>
+    <figure>
       <pre>
         <code class="language-applescript">
           set theSize to 0
@@ -236,75 +247,99 @@
           return theSize
         </code>
       </pre>
+    </figure>
 
-      <p><em>Spoiler alert:</em> This is, however, not the code I actually ended up using. More on that later.</p>
+    <section>
+
+      <p><em>Spoiler alert:</em> This is, however, not the code I actually ended up using. More on that
+        later.</p>
 
       <p> To call AppleScript within my code, I wanted to use <code>NSAppleScript</code> but
         couldn&rsquo;t
-        figure out how to make that work. Instead, I shell out to <code>osascript</code> and read the output from the
+        figure out how to make that work. Instead, I shell out to <code>osascript</code> and read the
+        output from the
         command
         line. <em>yeah.</em>
 
       <h2>Getting ahead of myself</h2>
-      <p> The code that intercepts pointer actions is called an <code>EventTap</code>. It is essentially a global event
-        handler. Those interested should mosey on over to the source code, because the full details are a little
-        hairy for a blog post, but basically I could take my script code above, read the result, and then normalize it
+      <p> The code that intercepts pointer actions is called an <code>EventTap</code>. It is essentially a
+        global event
+        handler. Those interested should mosey on over to the source code, because the full details are a
+        little
+        hairy for a blog post, but basically I could take my script code above, read the result, and then
+        normalize it
         into
         a pointer resolution. Here&rsquo;s the code that normalizes, by the way:
-      <pre>
-        <code class="language-swift">
-          extension Double {
-          func toNormalizedResolutionValue() -> Double {
+    </section>
+    <figure>
+      <pre><code class="language-swift">
+          extension Double { func toNormalizedResolutionValue() -> Double {
           let slope = (1995.0/1242850962)
           return self * slope + 75
           }
           }
-        </code>
-      </pre>
-
-      <p>It&rsquo;s probably bad practice to attach this functionality to <code>Double</code> itself, but I thought
+        </code></pre>
+    </figure>
+    <section>
+      <p>It&rsquo;s probably bad practice to attach this functionality to <code>Double</code> itself,
+        but I thought
         that was fun.
-
-      <p>But, I was running into a curious issue: The AppleScript took the value of the <em>last</em> selection I had,
+      <p>But, I was running into a curious issue: The AppleScript took the value of the <em>last</em>
+        selection I had,
         not
-        the current one! So if I selected <code>Xcode.app</code> and then selected <code>Visual Studio Code.app</code>,
-        it was taking the size of <code>Xcode.app</code> when I was dragging <code>Visual Studio Code.app.</code>
+        the current one! So if I selected <code>Xcode.app</code> and then selected <code>Visual Studio
+          Code.app</code>,
+        it was taking the size of <code>Xcode.app</code> when I was dragging <code>Visual Studio
+          Code.app.</code>
 
-      <p>Remember when I told you that the <code>EventTap</code> <em>intercepts</em> pointer actions? As it turns out,
+      <p>Remember when I told you that the <code>EventTap</code> <em>intercepts</em> pointer actions?
+        As it turns out,
         my
         event handler
-        ran <em>before</em> the event had propagated to Finder and so it was reading the selection before the selection
+        ran <em>before</em> the event had propagated to Finder and so it was reading the selection
+        before the selection
         updated.
 
-      <p>I solved this by getting the selection contents directly using the accessibility APIs (by checking for the
+      <p>I solved this by getting the selection contents directly using the accessibility APIs (by
+        checking for the
         presence of the <code>url</code> attribute on the element):
 
+    </section>
+    <figure>
       <pre><code class="language-swift">
           if !isMultiSelecting && element.getValue(.filename) is NSString,
           let url = element.getValue(.url) as? URL {
           // ...
           }
         </code></pre>
+    </figure>
+    <section>
 
-      <p>(shoutout to Swift's if-statements separated by commas and if-let syntax! i think Swift is such a neat
+      <p>(shoutout to Swift's if-statements separated by commas and if-let syntax! i think
+        Swift is such a neat
         language!)
 
       <p>But then I was finding it still
         too slow, especially
         for directories, and
-        macOS does not like it when your event taps take too slow, since they block I/O. So I learned I had
+        macOS does not like it when your event taps take too slow, since they block I/O. So
+        I learned I had
         to defer some operations to a
         background thread using
-        <code>DispatchQueue.global</code>, and while not particularly thread-safe, this wasn&rsquo;t really a concern of
+        <code>DispatchQueue.global</code>, and while not particularly thread-safe, this
+        wasn&rsquo;t really a concern of
         this
         code.
     </section>
     <section>
 
       <h2>Multi-select</h2>
-      <p>At this point, I was ready to demo Dragula to the Recurse Center. I got a lot of enthusiastic feedback and
-        was ready to work on all of the features that would really put a bow on top of what I got. Unfortunately,
-        at this point, I had really ripped my hair out learning all the vagaries of macOS programming: the inconsistent
+      <p>At this point, I was ready to demo Dragula to the Recurse Center. I got a lot of
+        enthusiastic feedback and
+        was ready to work on all of the features that would really put a bow on top of what
+        I got. Unfortunately,
+        at this point, I had really ripped my hair out learning all the vagaries of macOS
+        programming: the inconsistent
         documentation and Xcode itself. I was ready to drag Xcode straight to the trash.
         <br>
         <img width="256" height="256"
@@ -312,16 +347,24 @@
           alt="trying to delete Xcode with Dragula enabled; but I can't drag it far because Xcode is really big."
           src="img/xcode.gif">
         <br>
-      <p>... Oh, right. Well, perhaps throwing things away is a drastic action. Instead I slept on it for a week, and
+      <p>... Oh, right. Well, perhaps throwing things away is a drastic action. Instead I
+        slept on it for a week, and
         after doing other stuff I dove back into it and implemented multi-select.
 
-      <p>Remember when I said I ended up doing things differently? I found that in order to handle multiple selection it
-        was important for me to synchronize the selection from Finder instead of reading it directly each time. That way
-        I could compare selections to see if they had changed (when you drag, you always drag on a file handle, no
+      <p>Remember when I said I ended up doing things differently? I found that in order to
+        handle multiple selection it
+        was important for me to synchronize the selection from Finder instead of reading it
+        directly each time. That way
+        I could compare selections to see if they had changed (when you drag, you always
+        drag on a file handle, no
         matter
-        how large the selction, so I had to keep track of whether or not I was dragging just one file or multiple.) Here
-        is the code to retrieve all the paths in the selection, in POSIX format, separated by colons:
+        how large the selction, so I had to keep track of whether or not I was dragging just
+        one file or multiple.) Here
+        is the code to retrieve all the paths in the selection, in POSIX format, separated
+        by colons:
 
+    </section>
+    <figure>
       <pre><code class="language-applescript">
           set thePaths to ""
 
@@ -333,32 +376,39 @@
           return thePaths
           end tell
         </code></pre>
-
+    </figure>
+    <section>
       After this followed, I made a cute lil icon, inspired by the
-      namesake <a href="http://www.munsterkoach.com/franklin2.htm"><em>Drag-U-La</em></a>, added a UI (in SwiftUI!)
+      namesake <a href="http://www.munsterkoach.com/franklin2.htm"><em>Drag-U-La</em></a>,
+      added a UI (in SwiftUI!)
       to configure Dragula&rsquo;s behavior, and put it onto GitHub.
     </section>
     <section>
-
       <h2>Conclusion: Don&rsquo;t be a drag, just be a queen</h2>
-      <p> I had a lot of fun working on this project. It&rsquo;s been the highlight of the Recurse Center for me so far.
-        I didn&rsquo;t know any Swift, a lot of the people I paired with didn&rsquo;t know any Swift, and I was able to
+      <p> I had a lot of fun working on this project. It&rsquo;s been
+        the highlight of the Recurse Center for me so far.
+        I didn&rsquo;t know any Swift, a lot of the people I paired with
+        didn&rsquo;t know any Swift, and I was able to
         get this up and running in less than a week. It was the most <a
           href="https://ntietz.com/blog/write-more-useless-software/">useless</a>
         software I ever wrote.</p>
-      <p>Sometimes I have Dragula enabled, and drag a small text file, and it flies across the screen. And I
+      <p>Sometimes I have Dragula enabled, and drag a small text file,
+        and it flies across the screen. And I
         haven&rsquo;t
         stopped smiling
         at that.</p>
-      <p>How is it like to use Dragula? <a href="https://github.com/pbt/dragula">Install it yourself and find out.</a>
-        Maybe install it on a friend&rsquo;s computer to prank them. But my hope is that at least one soul pokes around
-        and learns how they can use the APIs I used to control computers in new, unexpected, fun ways.
+      <p>How is it like to use Dragula? <a href="https://github.com/pbt/dragula">Install it yourself and find
+          out.</a> Maybe install it on a friend&rsquo;s computer to prank them.
+        But my hope is that at least one soul pokes around and learns how they
+        can use the APIs I used to control computers in new, unexpected, fun
+        ways.
       </p>
     </section>
     <section>
       <h2>Acknowledgements</h2>
       <p>
-        A deep thank you to <a href="https://alexanderpetros.com/">Alex Petros</a> and Ava Fox for reading a draft of
+        A deep thank you to <a href="https://alexanderpetros.com/">Alex
+          Petros</a> and Ava Fox for reading a draft of
         this post.
       </p>
     </section>

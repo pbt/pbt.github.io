@@ -1,5 +1,6 @@
 @layer util, theme, base, layout, interface;
 
+
 @layer util {}
 
 @layer theme {
@@ -86,12 +87,11 @@
 
   a {
     color: var(--c-accent);
-    text-decoration: none;
-    border-bottom: 1px solid var(--c-border);
+    text-decoration: underline solid var(--c-border);
     transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1) all;
 
     &:hover {
-      border-bottom: 1px solid var(--c-text);
+      text-decoration: underline solid var(--c-text);
       text-shadow: 0 0.1ch 0.5ch rgba(0, 0, 0, 0.2);
     }
   }
@@ -146,6 +146,11 @@
     text-wrap: pretty;
     margin: 0;
     padding: 0 0 calc(var(--font-size) * var(--line-height)) 0;
+
+  }
+
+  pre {
+    margin: 0;
   }
 
   img {
@@ -157,6 +162,7 @@
     overflow: auto;
     padding: 0.25rem;
     border-radius: 0.5ch;
+    font-size: 90%;
   }
 
   .footnotes,
@@ -208,16 +214,8 @@
   }
 
   main,
-  footer,
-  figure {
+  footer {
     padding-bottom: var(--padding-sm);
-  }
-
-  figure {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-sm);
   }
 
 
@@ -351,7 +349,7 @@
 
 
   article>figure {
-    margin: 0;
+    margin: inherit 0;
     max-width: initial;
 
     & img {
@@ -359,16 +357,37 @@
     }
   }
 
+  figure {
+    margin: 0;
+    margin-bottom: var(--padding-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-xxs);
+    padding: var(--padding-xxxs);
+    background: light-dark(rgb(0 0 0 / 0.05), rgb(255 255 255 / 0.05));
+    border: 1px solid light-dark(rgb(0 0 0 / 0.05), rgb(255 255 255/ 0.025));
+    border-radius: calc(var(--padding-xxxs) + var(--padding-xxxs));
+
+    & figcaption {
+      font-size: 90%;
+    }
+
+    & *:last-child {
+      padding: 0;
+    }
+  }
+
   & a:has(img),
   figure>:first-child {
     border: 0;
-    box-shadow: 0 0 0 0.1rem var(--c-border);
+    background: light-dark(rgb(255 255 255 / 0.2), rgb(0 0 0 / 0.05));
+    box-shadow: 0 0 0 1px light-dark(rgb(0 0 0 / 0.05), rgb(255 255 255/ 0.05));
     border-radius: var(--padding-xxxs);
     overflow: clip;
   }
 
   a:has(img):hover {
-    box-shadow: 0 0 0 0.3rem var(--c-outline);
+    box-shadow: 0 0 0 0.1rem var(--c-outline);
   }
 
   .hero-img {
